@@ -3,7 +3,7 @@ import { useState } from 'react';
 const faqs = [
   {
     question: "Kolika mi je minimalna brzina interneta potrebna?",
-    answer: "Za normalno gledanje preporučujemo minimalnu brzinu od 10 Mbps. Za 4K sadržaj potrebno je najmanje 25 Mbps. Kvaliteta slike automatski se prilagođava vašoj brzini interneta kako bi se izbjeglo bufferiranje."
+    answer: "Za normalno gledanje preporučujemo minimalnu brzinu od 30 Mbps. Za 4K sadržaj potrebno je najmanje 50 Mbps. Kvaliteta slike automatski se prilagođava vašoj brzini interneta kako bi se izbjeglo bufferiranje."
   },
   {
     question: "Da li IPTV radi u Njemačkoj, Austriji, Švicarskoj ili USA?",
@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Kako mogu platiti uslugu?",
-    answer: "Prihvaćamo sigurna plaćanja putem PayPal-a i bankovnog transfera. Također radimo na dodavanju drugih opcija plaćanja uskoro. Sva plaćanja su sigurna i enkriptirana."
+    answer: "Prihvaćamo sigurna plaćanja putem Stripe Portala. Također radimo na dodavanju drugih opcija plaćanja uskoro. Sva plaćanja su sigurna i enkriptirana."
   },
   {
     question: "Šta ako mi se usluga ne svidi ili imam problem?",
