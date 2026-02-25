@@ -1,0 +1,189 @@
+---
+import SeoLayout from '../layouts/SeoLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const packages = [
+  { name: "Standard - 1 Mjesec", price: "10€", value: "standard-1" },
+  { name: "Standard - 3 Mjeseca", price: "25€", value: "standard-3" },
+  { name: "Standard - 6 Mjeseci", price: "45€", value: "standard-6" },
+  { name: "Standard - 12 Mjeseci", price: "60€", value: "standard-12" },
+  { name: "Premium - 1 Mjesec", price: "15€", value: "premium-1" },
+  { name: "Premium - 3 Mjeseca", price: "40€", value: "premium-3" },
+  { name: "Premium - 6 Mjeseci", price: "60€", value: "premium-6" },
+  { name: "Premium - 12 Mjeseci", price: "84€", value: "premium-12" },
+  { name: "Test - 24 sata", price: "BESPLATNO", value: "test" },
+];
+
+const devices = [
+  "Smart TV (Samsung/LG)",
+  "Android Box",
+  "Amazon Fire TV Stick",
+  "Apple TV / iOS",
+  "Android Telefon/Tablet",
+  "PC / Laptop",
+  "MAG / Enigma2",
+  "Drugo"
+];
+---
+
+<SeoLayout
+  title="Naruči EXYU IPTV | Prijava za Pretplatu"
+  description="Naručite vašu EXYU IPTV pretplatu danas. Odaberite paket i uređaj, ispunite formular i počnite gledati za par minuta."
+  canonicalURL="https://exyukanali.tv/narudzba"
+>
+  <Navbar />
+
+  <main class="pt-24 pb-20 bg-gradient-to-b from-gray-50 to-white min-h-screen">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-6">
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          🎁 Besplatan test 24h
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          Naruči <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Sada</span>
+        </h1>
+        <p class="text-lg text-gray-600">
+          Ispunite formular ispod i dobit ćete pristupne podatke u roku od par minuta
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100" action="#" method="POST">
+        <div class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+              Ime i Prezime *
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="Unesite vaše ime i prezime"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+              Email Adresa *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="vas.email@example.com"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+              Telefon (WhatsApp) *
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+              placeholder="+49 1525 1741280"
+            />
+          </div>
+
+          <!-- Device -->
+          <div>
+            <label for="device" class="block text-sm font-semibold text-gray-700 mb-2">
+              Uređaj *
+            </label>
+            <select
+              id="device"
+              name="device"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none bg-white"
+            >
+              <option value="">Odaberite uređaj</option>
+              {devices.map((device) => (
+                <option value={device}>{device}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Package -->
+          <div>
+            <label for="package" class="block text-sm font-semibold text-gray-700 mb-2">
+              Paket *
+            </label>
+            <select
+              id="package"
+              name="package"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none bg-white"
+            >
+              <option value="">Odaberite paket</option>
+              {packages.map((pkg) => (
+                <option value={pkg.value}>{pkg.name} - {pkg.price}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+              Poruka (Opciono)
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none resize-none"
+              placeholder="Dodatna pitanja ili napomene..."
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-1 transition-all duration-200"
+          >
+            Naruči Sada 🚀
+          </button>
+
+          <p class="text-center text-sm text-gray-500">
+            Podaci su sigurni. Ne dijelimo ih sa trećim stranama.
+          </p>
+        </div>
+      </form>
+
+      <!-- Contact CTA -->
+      <div class="mt-12 text-center">
+        <p class="text-gray-600">
+          Ili nas kontaktirajte direktno:
+        </p>
+        <div class="flex justify-center gap-4 mt-4">
+          <a
+            href="https://wa.me/4915251741280"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-colors"
+          >
+            💬 WhatsApp
+          </a>
+          <a
+            href="mailto:info@exyukanali.tv"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors"
+          >
+            ✉️ Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</SeoLayout>

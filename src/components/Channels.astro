@@ -1,0 +1,113 @@
+---
+const channels = [
+  {
+    image: "/images/sports-category.webp",
+    title: "Sportski Kanali",
+    description: "Arena Sport, Sport Klub, Eurosport & Premium Lige",
+    gradient: "from-red-500 to-orange-500",
+  },
+  {
+    image: "/images/movies-category.webp",
+    title: "Filmovi i Serije",
+    description: "HBO, CineStar, Fox Movies + VOD Videoteka",
+    gradient: "from-purple-500 to-pink-500",
+  },
+  {
+    image: "/images/nacionalni-tv.webp",
+    title: "Nacionalni TV",
+    description: "Svi kanali iz BiH, Srbije, Hrvatske, CG i MK",
+    gradient: "from-blue-500 to-cyan-500",
+  },
+  {
+    image: "/images/djeciji-program.webp",
+    title: "Dječiji Program",
+    description: "Nickelodeon, Disney, Minimax i crtani filmovi",
+    gradient: "from-green-500 to-emerald-500",
+  },
+  {
+    image: "/images/dokumentarni.webp",
+    title: "Dokumentarni",
+    description: "Discovery, National Geographic, History Channel",
+    gradient: "from-amber-500 to-yellow-500",
+  },
+  {
+    image: "/images/internacionalni.webp",
+    title: "Internacionalni",
+    description: "DE, AT, CH, USA, UK, Skandinavija i ostali",
+    gradient: "from-indigo-500 to-purple-500",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": channels.map((channel, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": channel.title,
+      "description": channel.description
+    }
+  }))
+};
+---
+
+<section id="channels" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Sve Što <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Želite Gledati</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Od domaćih vijesti do finala Lige Šampiona. Naša lista kanala pokriva sve interese i sve generacije.
+      </p>
+    </div>
+
+    <!-- Channels Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {channels.map((channel, index) => (
+        <div
+          class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Image -->
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={channel.image}
+              alt={channel.title}
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class={`absolute inset-0 bg-gradient-to-t ${channel.gradient} opacity-80`}></div>
+
+            <!-- Icon badge -->
+            <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+              <span class="text-2xl">
+                {index === 0 && "⚽"}
+                {index === 1 && "🎬"}
+                {index === 2 && "🇧🇦"}
+                {index === 3 && "👶"}
+                {index === 4 && "📚"}
+                {index === 5 && "🌍"}
+              </span>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h3 class="text-xl font-bold text-white mb-2">{channel.title}</h3>
+            <p class="text-white/80 text-sm">{channel.description}</p>
+          </div>
+
+          <!-- Hover overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+</section>

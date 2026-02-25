@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://exyukanali.tv/sitemap-index.xml

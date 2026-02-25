@@ -1,0 +1,45 @@
+---
+import SeoLayout from '../layouts/SeoLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<SeoLayout
+  title="Kolačići (Cookies) | EXYU IPTV"
+  description="Politika kolačića EXYU IPTV. Kako koristimo kolačiće za poboljšanje vašeg iskustva."
+  canonicalURL="https://exyukanali.tv/kolacici"
+>
+  <Navbar />
+
+  <main class="pt-24 pb-20 bg-white min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 class="text-4xl font-bold text-gray-900 mb-8">Politika Kolačića</h1>
+
+      <div class="prose prose-lg max-w-none text-gray-700 space-y-6">
+        <h2>Što su kolačići?</h2>
+        <p>Kolačići su male tekstualne datoteke koje se pohranjuju na vaše računalo ili mobilni uređaj kada posjećujete web stranicu.</p>
+
+        <h2>Kako koristimo kolačiće</h2>
+        <p>Koristimo kolačiće za:</p>
+        <ul>
+          <li>Poboljšanje funkcionalnosti stranice</li>
+          <li>Analizu posjećenosti</li>
+          <li>Personalizaciju sadržaja</li>
+          <li>Pratnju performansi</li>
+        </ul>
+
+        <h2>Vrste kolačića</h2>
+        <ul>
+          <li><strong>Nužni:</strong> Potrebni za rad stranice</li>
+          <li><strong>Analitički:</strong> Pomažu nam razumjeti kako koristite stranicu</li>
+          <li><strong>Marketinški:</strong> Koriste se za prikazivanje relevantnih oglasa</li>
+        </ul>
+
+        <h2>Upravljanje kolačićima</h2>
+        <p>Možete onemogućiti kolačiće u postavkama vašeg preglednika. Imajte na umu da to može utjecati na funkcionalnost stranice.</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</SeoLayout>

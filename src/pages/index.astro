@@ -1,0 +1,24 @@
+---
+import SeoLayout from '../layouts/SeoLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Channels from '../components/Channels.astro';
+import Devices from '../components/Devices.astro';
+import Pricing from '../components/Pricing.tsx';
+import FAQ from '../components/FAQ.tsx';
+import Footer from '../components/Footer.astro';
+---
+
+<SeoLayout>
+  <Navbar />
+  <main>
+    <Hero />
+    <Features />
+    <Channels />
+    <Devices />
+    <Pricing client:visible />
+    <FAQ client:visible />
+  </main>
+  <Footer />
+</SeoLayout>

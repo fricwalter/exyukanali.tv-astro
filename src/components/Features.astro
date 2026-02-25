@@ -1,0 +1,80 @@
+---
+const features = [
+  {
+    icon: "🖥️",
+    title: "Stabilan Server",
+    description: "Naši serveri garantuju 99% uptime. Gledajte omiljene kanale bez zamrzavanja i prekida zahvaljujući load-balancing tehnologiji.",
+    gradient: "from-blue-500 to-blue-600",
+  },
+  {
+    icon: "📺",
+    title: "4K & Full HD",
+    description: "Uživajte u kristalno čistoj slici. Većina kanala je dostupna u visokoj rezoluciji sa visokim bitrate-om za najbolje iskustvo.",
+    gradient: "from-purple-500 to-purple-600",
+  },
+  {
+    icon: "🎬",
+    title: "10.000+ Naslova",
+    description: "Ogromna videoteka (VOD) sa najnovijim filmovima i serijama. Redovno ažuriranje sa prevodima na naš jezik.",
+    gradient: "from-orange-500 to-red-500",
+  },
+  {
+    icon: "📜",
+    title: "Bez Ugovora",
+    description: "Plaćajte na mjesečnoj ili godišnjoj bazi. Bez skrivenih troškova, bez vezivanja i bez komplikovanih procedura otkazivanja.",
+    gradient: "from-green-500 to-green-600",
+  },
+  {
+    icon: "💬",
+    title: "Brza Podrška",
+    description: "Naš tim je tu da vam pomogne putem WhatsApp-a za brzu aktivaciju i rješavanje svih tehničkih pitanja u roku od par minuta.",
+    gradient: "from-pink-500 to-pink-600",
+  },
+  {
+    icon: "📱",
+    title: "Svi Uređaji",
+    description: "Jedna pretplata za sve vaše ekrane. Gledajte na Smart TV-u, Android Boxu, Fire TV Sticku, telefonu, tabletu ili računaru.",
+    gradient: "from-cyan-500 to-cyan-600",
+  },
+];
+---
+
+<section id="features" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Zašto Odabrati <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Naš IPTV</span>?
+      </h2>
+      <p class="text-lg text-gray-600">
+        Kombinujemo najnoviju tehnologiju streaminga sa vrhunskom korisničkom podrškom kako bismo vam pružili iskustvo bez kompromisa.
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {features.map((feature, index) => (
+        <div
+          class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Icon -->
+          <div class={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-2xl mb-6 shadow-lg`}>
+            <span class="text-2xl">{feature.icon}</span>
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+            {feature.title}
+          </h3>
+          <p class="text-gray-600 leading-relaxed">
+            {feature.description}
+          </p>
+
+          <!-- Hover decorative line -->
+          <div class={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.gradient} rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

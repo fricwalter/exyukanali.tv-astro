@@ -1,0 +1,127 @@
+---
+import SeoLayout from '../../layouts/SeoLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  const posts = [
+    {
+      slug: "android-box-iptv-instalacija",
+      title: "Kako Instalirati IPTV na Android Box – Kompletni Vodič",
+      excerpt: "Naučite kako jednostavno instalirati IPTV aplikaciju na vaš Android TV Box.",
+      content: "U ovom vodiču ćemo vam pokazati kako instalirati IPTV aplikaciju na Android Box uređaj...",
+      date: "15.01.2026",
+      category: "Instalacija",
+      readTime: "5 min"
+    },
+    {
+      slug: "fire-tv-stick-iptv-instalacija",
+      title: "Kako Instalirati IPTV na Amazon Fire TV Stick – Kompletni Vodič",
+      excerpt: "Naučite kako jednostavno instalirati IPTV aplikaciju na vaš Amazon Fire TV Stick.",
+      content: "Amazon Fire TV Stick je jedan od najpopularnijih uređaja za streaming...",
+      date: "10.01.2026",
+      category: "Instalacija",
+      readTime: "4 min"
+    },
+    {
+      slug: "kako-instalirati-iptv-na-samsung-tv",
+      title: "Kako instalirati IPTV na Samsung TV? (Korak po Korak)",
+      excerpt: "Detaljan vodič za instalaciju najpopularnijih IPTV aplikacija na Samsung Smart TV uređajima.",
+      content: "Samsung Smart TV uređaji nude podršku za različite IPTV aplikacije...",
+      date: "05.01.2026",
+      category: "Instalacija",
+      readTime: "6 min"
+    }
+  ];
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<SeoLayout
+  title={`${post.title} | EXYU IPTV Blog`}
+  description={post.excerpt}
+  canonicalURL={`https://exyukanali.tv/blog/${post.slug}`}
+>
+  <Navbar />
+
+  <main class="pt-24 pb-20 bg-white min-h-screen">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+        <a href="/" class="hover:text-blue-600">Početna</a>
+        <span>/</span>
+        <a href="/blog" class="hover:text-blue-600">Blog</a>
+        <span>/</span>
+        <span class="text-gray-900">{post.title}</span>
+      </nav>
+
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">
+            {post.category}
+          </span>
+          <span class="text-gray-500 text-sm">{post.date}</span>
+          <span class="text-gray-500 text-sm">•</span>
+          <span class="text-gray-500 text-sm">{post.readTime} čitanja</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">
+          {post.title}
+        </h1>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-lg max-w-none text-gray-700">
+        <p class="lead">{post.excerpt}</p>
+
+        <h2>Priprema</h2>
+        <p>Prije nego što počnete s instalacijom, provjerite da imate:</p>
+        <ul>
+          <li>Android Box uređaj</li>
+          <li>aktivnu EXYU IPTV pretplatu</li>
+          <li>stabilnu internet konekciju</li>
+        </ul>
+
+        <h2>Korak 1: Preuzimanje aplikacije</h2>
+        <p>Idite na Google Play Store i pretražite "IPTV" ili koristite našu preporučenu aplikaciju.</p>
+
+        <h2>Korak 2: Instalacija</h2>
+        <p>Kliknite na "Instaliraj" i pričekajte da se aplikacija preuzme.</p>
+
+        <h2>Korak 3: Konfiguracija</h2>
+        <p>Nakon instalacije, pokrenite aplikaciju i unesite podatke koje ste dobili nakon narudžbe.</p>
+
+        <h2>Zaključak</h2>
+        <p>To je to! Sada možete uživati u gledanju vaših omiljenih kanala. Ako imate bilo kakvih pitanja, slobodno nas kontaktirajte.</p>
+      </div>
+
+      <!-- Share -->
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="font-semibold text-gray-900 mb-4">Podijelite ovaj članak:</p>
+        <div class="flex gap-4">
+          <a href={`https://wa.me/?text=${post.title}`} class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+            WhatsApp
+          </a>
+          <a href={`mailto:?subject=${post.title}&body=${post.excerpt}`} class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+            Email
+          </a>
+        </div>
+      </div>
+
+      <!-- Back to Blog -->
+      <div class="mt-12">
+        <a href="/blog" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+          ← Nazad na blog
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</SeoLayout>
