@@ -1,0 +1,113 @@
+---
+import SeoLayout from '../layouts/SeoLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<SeoLayout
+  title="Instalacija | EXYU IPTV"
+  description="Detaljni vodiči za instalaciju EXYU IPTV-a na Fire TV Stick, Samsung TV, LG TV, Android TV i druge uređaje. Korak po korak upute."
+  canonicalURL="https://exyukanali.tv/instalacija"
+>
+  <Navbar />
+
+  <main class="pt-24 pb-20 bg-gradient-to-b from-gray-50 to-white min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8 text-center">
+        Instalacijski Vodiči
+      </h1>
+
+      <p class="text-lg text-gray-600 mb-12 text-center">
+        Odaberite svoj uređaj i slijedite korake za instalaciju EXYU IPTV-a.
+      </p>
+
+      <!-- Device Grid -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Fire TV Stick -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-4">🔥</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Fire TV Stick</h2>
+          <ol class="space-y-2 text-gray-600">
+            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite Amazon Appstore</li>
+            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
+            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
+            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
+          </ol>
+        </div>
+
+        <!-- Samsung TV -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-4">📺</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Samsung Smart TV</h2>
+          <ol class="space-y-2 text-gray-600">
+            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite Samsung App Store</li>
+            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
+            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
+            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
+          </ol>
+        </div>
+
+        <!-- LG TV -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-4">📱</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">LG Smart TV</h2>
+          <ol class="space-y-2 text-gray-600">
+            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite LG Content Store</li>
+            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
+            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
+            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
+          </ol>
+        </div>
+
+        <!-- Android Box -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-4">🎮</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Android TV Box</h2>
+          <ol class="space-y-2 text-gray-600">
+            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite Google Play Store</li>
+            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "TiviMate"</li>
+            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
+            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
+          </ol>
+        </div>
+
+        <!-- PC/Laptop -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-4">💻</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">PC / Laptop</h2>
+          <ol class="space-y-2 text-gray-600">
+            <li class="flex gap-2"><span class="font-bold">1.</span> Preuzmite VLC Player</li>
+            <li class="flex gap-2"><span class="font-bold">2.</span> Instalirajte VLC</li>
+            <li class="flex gap-2"><span class="font-bold">3.</span> Media → Open Network</li>
+            <li class="flex gap-2"><span class="font-bold">4.</span> Zalijepite M3U URL</li>
+          </ol>
+        </div>
+
+        <!-- Smartphone -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-4">📲</div>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Smartphone / Tablet</h2>
+          <ol class="space-y-2 text-gray-600">
+            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite App Store / Play Store</li>
+            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
+            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
+            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Tips -->
+      <div class="mt-12 bg-blue-50 rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-gray-900 mb-4">💡 Savjeti</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li>✓ Provjerite stabilnu internetsku vezu</li>
+          <li>✓ Koristite WiFi ili Ethernet za najbolje iskustvo</li>
+          <li>✓ Imate problema? Kontaktirajte nas putem WhatsApp-a</li>
+          <li>✓ Besplatni 24h test dostupan za sve uređaje</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</SeoLayout>

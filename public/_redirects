@@ -1,2 +1,11 @@
 # Redirect www to non-www
 https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301
+
+# Redirect trailing slash to non-trailing-slash
+/kontakt/ /kontakt 301
+/narudzba/ /narudzba 301
+/privatnost/ /privatnost 301
+/uvjeti-koristenja/ /uvjeti-koristenja 301
+/povrat-novca/ /povrat-novca 301
+/kolacici/ /kolacici 301
+/blog/ /blog 301
