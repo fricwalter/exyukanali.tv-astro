@@ -118,6 +118,8 @@ export default function CategoryTabs() {
               <img
                 src={activeCategory?.image}
                 alt={activeCategory?.name}
+                width={800}
+                height={320}
                 className="w-full h-80 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
