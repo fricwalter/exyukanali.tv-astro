@@ -1,0 +1,2 @@
+# Redirect www to non-www
+https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301

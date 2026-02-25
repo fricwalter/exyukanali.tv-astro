@@ -1,6 +1,4 @@
-name = "exyu-iptv"
+name = "exyukanali-tv"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
-
-[env.production]
-name = "exyu-iptv"
+account_id = "21b058f792197fa0a48926aa867f845e"
