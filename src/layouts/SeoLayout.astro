@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title = "EXYU IPTV Kanali | IPTV za Dijasporu",
-  description = "🚀 #1 IPTV za Dijasporu. Gledaj Najbolje EXYU Kanale Bilo Gdje u Svijetu. Bez zamrzavanja. Bez ugovora. 10.000+ kanala i videoteka u 4K rezoluciji. Za Njemačku, Austriju, Švicarsku i cijeli svijet.",
+  description = "#1 IPTV za Dijasporu. 10.000+ kanala u 4K. Gledaj EXYU kanale bilo gdje u svijetu. Bez ugovora, bez zamrzavanja. Za Njemačku, Austriju, Švicarsku.",
   canonicalURL = "https://exyukanali.tv",
   image = "https://exyukanali.tv/og-image.jpg",
   type = "website",
@@ -49,6 +49,17 @@ const organizationSchema = {
 const breadcrumbs = [
   { name: "Početna", url: "https://exyukanali.tv/" }
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url
+  }))
+};
 ---
 
 <!doctype html>
@@ -95,6 +106,7 @@ const breadcrumbs = [
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3H8C2FR00"></script>
