@@ -8,16 +8,16 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+<header class="fixed top-0 left-0 right-0 z-50 bg-stone-900/95 backdrop-blur-md border-b border-stone-800">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16 md:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2 group">
-        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
           <span class="text-white font-bold text-lg">EX</span>
         </div>
-        <span class="text-xl font-bold text-gray-900">
-          <span class="text-blue-600">EXYU</span> IPTV
+        <span class="text-xl font-bold text-white">
+          <span class="text-blue-400">EXYU</span> IPTV
         </span>
       </a>
 
@@ -26,7 +26,7 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-4 py-2 text-gray-600 hover:text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-all duration-200"
+            class="px-4 py-2 text-gray-300 hover:text-blue-400 font-medium rounded-lg hover:bg-stone-800 transition-all duration-200"
           >
             {link.name}
           </a>
@@ -37,7 +37,7 @@ const navLinks = [
       <div class="hidden md:block">
         <a
           href="#pricing"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all duration-200"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all duration-200"
         >
           Naruči Odmah
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,10 +49,10 @@ const navLinks = [
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        class="md:hidden p-2 rounded-lg hover:bg-stone-800 transition-colors"
         aria-label="Meni"
       >
-        <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -64,14 +64,14 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="px-4 py-3 text-gray-700 hover:text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
+            class="px-4 py-3 text-gray-200 hover:text-blue-400 font-medium rounded-lg hover:bg-stone-800 transition-colors"
           >
             {link.name}
           </a>
         ))}
         <a
           href="#pricing"
-          class="mt-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl text-center"
+          class="mt-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl text-center"
         >
           Naruči Odmah
         </a>

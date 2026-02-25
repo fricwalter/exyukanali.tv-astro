@@ -5,57 +5,57 @@ const categories = [
     id: "sportski",
     name: "Sportski Kanali",
     icon: "⚽",
-    description: "Arena Sport, Sport Klub, Eurosport & Premium Lige",
-    image: "/images/sports-category.webp",
+    description: "Najbolji Sport na TV - Nogomet, Košarka, MMA i Više",
+    image: "/images/sports-category-compressed.webp",
     channels: [
-      "Arena Sport 1-10",
-      "Sport Klub HD",
-      "Eurosport 1 & 2",
-      "Premier League",
-      "Champions League",
-      "La Liga",
-      "Serie A",
-      "Bundesliga",
-      "NBA",
-      "MMA / UFC"
+      "Nogomet - Premier League",
+      "Nogomet - Champions League",
+      "Nogomet - La Liga",
+      "Nogomet - Serie A",
+      "Nogomet - Bundesliga",
+      "Košarka - NBA",
+      "Košarka - EuroLeague",
+      "Borilački Sportovi",
+      "Tenis - ATP/WTA",
+      "Ostali Sportovi"
     ]
   },
   {
     id: "filmovi",
     name: "Filmovi i Serije",
     icon: "🎬",
-    description: "HBO, CineStar, Fox Movies + VOD Videoteka",
-    image: "/images/movies-category.webp",
+    description: "Najbolji Filmovi i Serije - 10.000+ Naslova",
+    image: "/images/movies-category-compressed.webp",
     channels: [
-      "HBO HD",
-      "HBO 2 & 3",
-      "CineStar TV",
-      "Fox Movies",
-      "Fox Crime",
-      "AMC",
-      "Paramount Channel",
-      "VOD 10.000+ naslova",
-      "Najnoviji filmovi",
-      "Serije sa prevodom"
+      "Premium Filmovi 4K",
+      "Najnoviji Filmovi",
+      "Serije sa Prevodom",
+      "Dokumentarci",
+      "Animirani Filmovi",
+      "Akcijski Filmovi",
+      "Komedije",
+      "Horori",
+      "Drama i Trileri",
+      "VOD Videoteka"
     ]
   },
   {
     id: "nacionalna",
     name: "Nacionalna TV",
     icon: "🇧🇦",
-    description: "Svi kanali iz BiH, Srbije, Hrvatske, CG i Makedonije",
-    image: "/images/nacionalni-tv.webp",
+    description: "Svi Domaći Kanali iz BiH, Srbije, Hrvatske i Regiona",
+    image: "/images/nacionalni-tv-compressed.webp",
     channels: [
-      "BHT 1",
-      "FTV",
-      "Nova BH",
-      "Hayat TV",
-      "RTRS",
-      "RTV Pink",
-      "RTV Belgrade",
-      "HRT 1-4",
-      "Nova TV",
-      "DOMA TV"
+      "Bosanski Kanali",
+      "Srpski Kanali",
+      "Hrvatski Kanali",
+      "Crnogorski Kanali",
+      "Makedonski Kanali",
+      "Slovenski Kanali",
+      "Vijesti 24/7",
+      "Dječiji Program",
+      "Muzički Kanali",
+      "Kulturni Kanali"
     ]
   }
 ];
@@ -81,14 +81,14 @@ export default function CategoryTabs() {
 
   return (
     <>
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Sve Što <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Želite Gledati</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Sve Što <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Želite Gledati</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               Od domaćih vijesti do finala Lige Šampiona. Naša lista kanala pokriva sve interese i sve generacije.
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function CategoryTabs() {
                 className={`flex items-center gap-3 px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
                   activeTab === cat.id
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/25'
-                    : 'bg-stone-100 text-gray-700 hover:bg-stone-200'
+                    : 'bg-stone-800 text-white hover:bg-stone-700'
                 }`}
               >
                 <span className="text-2xl">{cat.icon}</span>
@@ -129,12 +129,12 @@ export default function CategoryTabs() {
 
             {/* Channels List */}
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{activeCategory?.description}</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{activeCategory?.description}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {activeCategory?.channels.map((channel, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl">
+                  <div key={index} className="flex items-center gap-3 p-3 bg-stone-800 rounded-xl">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700 font-medium">{channel}</span>
+                    <span className="text-gray-200 font-medium">{channel}</span>
                   </div>
                 ))}
               </div>

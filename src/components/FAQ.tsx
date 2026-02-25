@@ -45,14 +45,14 @@ export default function FAQ() {
 
   return (
     <>
-      <section id="faq" className="py-20 bg-stone-50">
+      <section id="faq" className="py-20 bg-stone-900">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Često <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Postavljana Pitanja</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Često <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Postavljana Pitanja</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               Imate pitanja? Mi imamo odgovore.
             </p>
           </div>
@@ -62,19 +62,19 @@ export default function FAQ() {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
+                className="bg-stone-800 rounded-2xl shadow-lg overflow-hidden border border-stone-700"
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors duration-200"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-stone-700 transition-colors duration-200"
                 >
-                  <span className="font-semibold text-gray-900 text-lg">
+                  <span className="font-semibold text-white text-lg">
                     {faq.question}
                   </span>
                   <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 ${
                     openIndex === index
-                      ? 'bg-blue-600 text-white rotate-180'
-                      : 'bg-gray-100 text-gray-600'
+                      ? 'bg-blue-500 text-white rotate-180'
+                      : 'bg-stone-700 text-gray-300'
                   }`}>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -85,7 +85,7 @@ export default function FAQ() {
                 <div className={`overflow-hidden transition-all duration-300 ${
                   openIndex === index ? 'max-h-96' : 'max-h-0'
                 }`}>
-                  <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  <div className="px-6 pb-6 text-gray-300 leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>

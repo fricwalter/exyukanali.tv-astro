@@ -74,14 +74,14 @@ export default function Pricing() {
 
   return (
     <>
-      <section id="pricing" className="py-20 bg-white">
+      <section id="pricing" className="py-20 bg-stone-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Izaberite <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Svoj Paket</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Izaberite <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Svoj Paket</span>
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-300">
               Fleksibilne opcije za svakoga. Bez ugovorne obveze.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function Pricing() {
               className={`px-8 py-4 rounded-xl font-semibold transition-all duration-200 ${
                 activeTab === 'standard'
                   ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-600/25'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-stone-800 text-white hover:bg-stone-700'
               }`}
             >
               Standard Paket
@@ -103,7 +103,7 @@ export default function Pricing() {
               className={`px-8 py-4 rounded-xl font-semibold transition-all duration-200 relative ${
                 activeTab === 'premium'
                   ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 shadow-lg shadow-orange-500/25'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-stone-800 text-white hover:bg-stone-700'
               }`}
             >
               Premium Paket 🔥
@@ -117,7 +117,7 @@ export default function Pricing() {
 
           {/* Plan Content */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl">
+            <div className="bg-gradient-to-br from-stone-800 to-stone-900 rounded-3xl p-8 md:p-12 border border-stone-700 shadow-xl">
               {/* Popular Badge */}
               {currentPlan.popular && (
                 <div className="text-center mb-6">
@@ -140,7 +140,7 @@ export default function Pricing() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-gray-200">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -152,8 +152,8 @@ export default function Pricing() {
                     key={index}
                     className={`relative rounded-2xl p-6 text-center border-2 transition-all duration-200 hover:-translate-y-1 ${
                       index === 3
-                        ? 'border-green-500 bg-green-50'
-                        : 'border-gray-200 bg-white hover:border-blue-300'
+                        ? 'border-green-500 bg-green-900/30'
+                        : 'border-stone-700 bg-stone-800 hover:border-blue-400'
                     }`}
                   >
                     {index === 3 && (
@@ -161,7 +161,7 @@ export default function Pricing() {
                         NAJPOVOLJNIJE
                       </div>
                     )}
-                    <div className="text-gray-600 text-sm mb-2">{pricing.period}</div>
+                    <div className="text-gray-400 text-sm mb-2">{pricing.period}</div>
                     <div className={`text-3xl font-bold mb-4 ${
                       currentPlan.popular ? 'text-orange-600' : 'text-blue-600'
                     }`}>
@@ -184,9 +184,9 @@ export default function Pricing() {
 
             {/* CTA */}
             <div className="text-center mt-8">
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Nisite sigurni koji paket odabrati?{' '}
-                <a href="/narudzba" className="text-blue-600 font-semibold hover:underline">
+                <a href="/narudzba" className="text-blue-400 font-semibold hover:underline">
                   🎁 Testiraj 24h Besplatno
                 </a>
               </p>

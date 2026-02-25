@@ -39,14 +39,14 @@ const features = [
 ];
 ---
 
-<section id="features" class="py-20 bg-stone-50">
+<section id="features" class="py-20 bg-stone-900">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-        Zašto Odabrati <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Naš IPTV</span>?
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        Zašto Odabrati <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Naš IPTV</span>?
       </h2>
-      <p class="text-lg text-gray-600">
+      <p class="text-lg text-gray-300">
         Kombinujemo najnoviju tehnologiju streaminga sa vrhunskom korisničkom podrškom kako bismo vam pružili iskustvo bez kompromisa.
       </p>
     </div>
@@ -55,7 +55,7 @@ const features = [
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((feature, index) => (
         <div
-          class="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+          class="group relative bg-stone-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-stone-700"
           style={`animation-delay: ${index * 100}ms`}
         >
           <!-- Icon -->
@@ -64,10 +64,10 @@ const features = [
           </div>
 
           <!-- Content -->
-          <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+          <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
             {feature.title}
           </h3>
-          <p class="text-gray-600 leading-relaxed">
+          <p class="text-gray-300 leading-relaxed">
             {feature.description}
           </p>
 
