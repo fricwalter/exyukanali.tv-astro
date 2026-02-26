@@ -43,35 +43,6 @@ export default function Pricing() {
 
   const currentPlan = plans[activeTab];
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "EXYU IPTV Standard",
-        "description": "Standard IPTV paket sa EXYU kanalima",
-        "offers": {
-          "@type": "Offer",
-          "price": "10",
-          "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock"
-        }
-      },
-      {
-        "@type": "Offer",
-        "name": "EXYU IPTV Premium",
-        "description": "Premium IPTV paket sa svim kanalima u 4K",
-        "offers": {
-          "@type": "Offer",
-          "price": "15",
-          "priceCurrency": "EUR",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    ]
-  };
-
   return (
     <>
       <section id="pricing" className="py-20 bg-stone-900">
@@ -194,9 +165,6 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-
-      {/* Schema.org Product Schema */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </>
   );
 }

@@ -60,20 +60,6 @@ const categories = [
   }
 ];
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": categories.map((cat, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "Product",
-      "name": cat.name,
-      "description": cat.description
-    }
-  }))
-};
-
 export default function CategoryTabs() {
   const [activeTab, setActiveTab] = useState("sportski");
 
@@ -151,9 +137,6 @@ export default function CategoryTabs() {
           </div>
         </div>
       </section>
-
-      {/* Schema.org */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </>
   );
 }

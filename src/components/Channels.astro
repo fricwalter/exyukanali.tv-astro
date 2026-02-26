@@ -38,19 +38,6 @@ const channels = [
   },
 ];
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": channels.map((channel, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "Product",
-      "name": channel.title,
-      "description": channel.description
-    }
-  }))
-};
 ---
 
 <section id="channels" class="py-20 bg-stone-900">
@@ -109,7 +96,4 @@ const schema = {
       ))}
     </div>
   </div>
-
-  <!-- Schema.org -->
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 </section>

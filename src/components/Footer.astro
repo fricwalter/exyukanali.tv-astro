@@ -1,52 +1,36 @@
 ---
 const footerLinks = [
   {
-    title: "Sve Stranice",
+    title: 'Sve Stranice',
     links: [
-      { name: "Početna", href: "/" },
-      { name: "Naručba", href: "/narudzba" },
-      { name: "Instalacija", href: "/instalacija" },
-      { name: "Blog", href: "/blog" },
-      { name: "Kontakt", href: "/kontakt" },
+      { name: 'Pocetna', href: '/' },
+      { name: 'Narudzba', href: '/narudzba' },
+      { name: 'Instalacija', href: '/instalacija' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Kontakt', href: '/kontakt' }
     ]
   },
   {
-    title: "Pravne Informacije",
+    title: 'Pravne Informacije',
     links: [
-      { name: "Uvjeti korištenja", href: "/uvjeti-koristenja" },
-      { name: "Privatnost", href: "/privatnost" },
-      { name: "Povrat novca", href: "/povrat-novca" },
-      { name: "Kolačići", href: "/kolacici" },
+      { name: 'Uvjeti koristenja', href: '/uvjeti-koristenja' },
+      { name: 'Privatnost', href: '/privatnost' },
+      { name: 'Povrat novca', href: '/povrat-novca' },
+      { name: 'Kolacici', href: '/kolacici' }
     ]
   }
 ];
 
 const contactInfo = {
-  whatsapp: "+4915251741280",
-  email: "info@exyukanali.tv",
-  hours: "09:00 - 22:00"
-};
-
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "EXYU Kanali TV",
-  "url": "https://exyukanali.tv",
-  "logo": "https://exyukanali.tv/logo.png",
-  "description": "Najbolja internet televizija za dijasporu. Gledajte vaše omiljene kanale bilo gdje u svijetu bez ugovora.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+49-1525-1741280",
-    "contactType": "customer service",
-    "availableLanguage": ["Serbian", "Croatian", "Bosnian", "German", "English"]
-  }
+  whatsapp: '+4915251741280',
+  email: 'info@exyukanali.tv',
+  hours: '09:00 - 22:00'
 };
 ---
 
 <footer class="bg-gray-900 text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-      <!-- Brand -->
       <div class="lg:col-span-2">
         <a href="/" class="flex items-center gap-2 mb-6">
           <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
@@ -57,10 +41,9 @@ const schema = {
           </span>
         </a>
         <p class="text-gray-400 mb-6 max-w-md">
-          Najbolja internet televizija za dijasporu. Gledajte vaše omiljene kanale bilo gdje u svijetu bez ugovora, bez zamrzavanja u 4K rezoluciji.
+          Najbolja internet televizija za dijasporu. Gledajte omiljene kanale bilo gdje u svijetu bez ugovora i bez zamrzavanja u 4K rezoluciji.
         </p>
 
-        <!-- Contact Info -->
         <div class="space-y-3">
           <div class="flex items-center gap-3">
             <span class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">💬</span>
@@ -68,7 +51,7 @@ const schema = {
           </div>
           <div class="flex items-center gap-3">
             <span class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">✉️</span>
-            <span class="text-gray-300">Email: <a href={`mailto:${contactInfo.email}`} class="text-blue-400 hover:underline">{contactInfo.email}</a></span>
+            <span class="text-gray-300">Email: <a data-email={contactInfo.email} data-preserve-text="true" href="#" class="text-blue-400 hover:underline"><span data-email-text={contactInfo.email}>[E-Mail aktivieren]</span></a></span>
           </div>
           <div class="flex items-center gap-3">
             <span class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">🕐</span>
@@ -77,7 +60,6 @@ const schema = {
         </div>
       </div>
 
-      <!-- Links -->
       {footerLinks.map((section) => (
         <div>
           <h3 class="text-lg font-semibold mb-4">{section.title}</h3>
@@ -94,14 +76,13 @@ const schema = {
       ))}
     </div>
 
-    <!-- Bottom -->
     <div class="mt-12 pt-8 border-t border-gray-800">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-gray-400 text-sm">
-          © 2026 EXYU Kanali TV. Sva prava zadržana.
+          © 2026 EXYU Kanali TV. Sva prava zadrzana.
         </p>
         <div class="flex gap-6">
-          <a href="/uvjeti-koristenja" class="text-gray-400 hover:text-white text-sm transition-colors">Uvjeti korištenja</a>
+          <a href="/uvjeti-koristenja" class="text-gray-400 hover:text-white text-sm transition-colors">Uvjeti koristenja</a>
           <a href="/privatnost" class="text-gray-400 hover:text-white text-sm transition-colors">Privatnost</a>
           <a href="/povrat-novca" class="text-gray-400 hover:text-white text-sm transition-colors">Povrat novca</a>
           <a href="/kontakt" class="text-gray-400 hover:text-white text-sm transition-colors">Kontakt</a>
@@ -110,12 +91,8 @@ const schema = {
       </div>
     </div>
   </div>
-
-  <!-- Schema.org -->
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 </footer>
 
-<!-- WhatsApp Widget -->
 <a
   href={`https://wa.me/${contactInfo.whatsapp.replace(/\s/g, '')}`}
   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full shadow-lg flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-200"

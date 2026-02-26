@@ -1,0 +1,38 @@
+---
+import { blogPosts } from '../data/blogPosts';
+
+interface Props {
+  currentSlug: string;
+  currentCategory?: string;
+}
+
+const { currentSlug, currentCategory } = Astro.props;
+
+const byCategory = blogPosts.filter(
+  (post) => post.slug !== currentSlug && post.category === currentCategory
+);
+
+const fallbackPosts = blogPosts.filter((post) => post.slug !== currentSlug);
+const relatedPosts = [...byCategory, ...fallbackPosts]
+  .filter((post, index, self) => self.findIndex((item) => item.slug === post.slug) === index)
+  .slice(0, 3);
+---
+
+{relatedPosts.length > 0 && (
+  <section class="mt-12 pt-8 border-t border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Slicni Clanci</h2>
+    <ul class="space-y-4">
+      {relatedPosts.map((post) => (
+        <li>
+          <a
+            href={`/blog/${post.slug}`}
+            class="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"
+          >
+            <p class="font-semibold text-gray-900">{post.title}</p>
+            <p class="text-sm text-gray-600 mt-1">{post.excerpt}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

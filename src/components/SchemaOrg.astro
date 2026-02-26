@@ -1,0 +1,78 @@
+---
+interface SchemaData {
+  title?: string;
+  description?: string;
+  url?: string;
+  author?: string;
+  pubDate?: string | Date;
+  updatedDate?: string | Date;
+  image?: string;
+}
+
+interface Props {
+  type?: 'WebPage' | 'BlogPosting' | 'Organization';
+  data: SchemaData;
+}
+
+const { type = 'WebPage', data } = Astro.props;
+
+const toISODate = (value?: string | Date) => {
+  if (!value) return undefined;
+  if (value instanceof Date) return value.toISOString();
+
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return undefined;
+  return parsed.toISOString();
+};
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  ...(type === 'Organization' && {
+    name: data.title ?? 'EXYU Kanali TV',
+    description: data.description,
+    url: data.url,
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://exyukanali.tv/og-image.jpg'
+    }
+  }),
+  ...(type === 'WebPage' && {
+    name: data.title,
+    description: data.description,
+    url: data.url
+  }),
+  ...(type === 'BlogPosting' && {
+    headline: data.title,
+    name: data.title,
+    description: data.description,
+    url: data.url,
+    author: {
+      '@type': 'Person',
+      name: data.author ?? 'EXYU Kanali TV'
+    },
+    datePublished: toISODate(data.pubDate),
+    dateModified: toISODate(data.updatedDate ?? data.pubDate),
+    publisher: {
+      '@type': 'Organization',
+      name: 'EXYU Kanali TV',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://exyukanali.tv/og-image.jpg'
+      }
+    },
+    ...(data.image && {
+      image: {
+        '@type': 'ImageObject',
+        url: data.image
+      }
+    }),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': data.url
+    }
+  })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

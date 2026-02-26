@@ -2,101 +2,31 @@
 import SeoLayout from '../../layouts/SeoLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { blogPosts } from '../../data/blogPosts';
 
-const posts = [
-  {
-    slug: "android-box-iptv-instalacija",
-    title: "Kako Instalirati IPTV na Android Box – Kompletni Vodič",
-    excerpt: "Naučite kako jednostavno instalirati IPTV aplikaciju na vaš Android TV Box. Detaljni vodič za sve Android uređaje.",
-    date: "15.01.2026",
-    category: "Instalacija"
-  },
-  {
-    slug: "fire-tv-stick-iptv-instalacija",
-    title: "Kako Instalirati IPTV na Amazon Fire TV Stick – Kompletni Vodič",
-    excerpt: "Naučite kako jednostavno instalirati IPTV aplikaciju na vaš Amazon Fire TV Stick u samo nekoliko koraka.",
-    date: "10.01.2026",
-    category: "Instalacija"
-  },
-  {
-    slug: "kako-instalirati-iptv-na-samsung-tv",
-    title: "Kako instalirati IPTV na Samsung TV? (Korak po Korak)",
-    excerpt: "Detaljan vodič za instalaciju najpopularnijih IPTV aplikacija na Samsung Smart TV uređajima.",
-    date: "05.01.2026",
-    category: "Instalacija"
-  },
-  {
-    slug: "najbolji-iptv-box-2026",
-    title: "Najbolji IPTV Box u 2026 - Kompletna Usporedba",
-    excerpt: "Koji je najbolji IPTV box za vas? Usporedba najpopularnijih uređaja za gledanje IPTV-a u 2026. godini.",
-    date: "20.02.2026",
-    category: "Uređaji"
-  },
-  {
-    slug: "sta-je-iptv-i-kako-radi",
-    title: "Šta je IPTV i Kako Radi? - Sve što Trebate Znati",
-    excerpt: "Objašnjavamo šta je IPTV, kako funkcioniše i zašto je budućnost televizije. Sve prednosti i nedostaci.",
-    date: "18.02.2026",
-    category: "Vodič"
-  },
-  {
-    slug: "iptv-vs-kabelska-televizija",
-    title: "IPTV vs Kabelska Televizija - Šta je Bolje?",
-    excerpt: "Usporedba IPTV-a i tradicionalne kabelske televizije. Koja opcija isplati više? Sve prednosti i nedostaci.",
-    date: "15.02.2026",
-    category: "Vodič"
-  },
-  {
-    slug: "kako-poboljsati-kvalitetu-iptv-streama",
-    title: "Kako Poboljšati Kvalitetu IPTV Streama - 10 Savjeta",
-    excerpt: "Imate problema sa zamrzavanjem? Evo 10 dokazanih načina kako poboljšati kvalitetu vašeg IPTV streama.",
-    date: "12.02.2026",
-    category: "Savjeti"
-  },
-  {
-    slug: "legalnost-iptv-u-njemackoj",
-    title: "Legalnost IPTV-a u Njemačkoj, Austriji i Švicarskoj",
-    excerpt: "Sve što trebate znati o pravnom statusu IPTV-a u EU. Da li je IPTV legalan? Koji su rizici?",
-    date: "08.02.2026",
-    category: "Pravno"
-  },
-  {
-    slug: "najbolji-sportski-kanali-exyu-iptv",
-    title: "Najbolji Sportski Kanali na EXYU IPTV",
-    excerpt: "Pregled svih sportskih kanala dostupnih na EXYU IPTV-u. Gledajte nogomet, košarku, borilačke sportove i više.",
-    date: "05.02.2026",
-    category: "Kanali"
-  },
-  {
-    slug: "kako-gledati-exyu-kanale-u-inostranstvu",
-    title: "Kako Gledati EXYU Kanale u Inostranstvu - Dijaspora Vodič",
-    excerpt: "Evo kako gledati bosanske, srpske i hrvatske kanale bilo gdje u svijetu. Idealno za dijasporu u Njemačkoj.",
-    date: "01.02.2026",
-    category: "Vodič"
-  }
-];
+const posts = [...blogPosts].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 ---
 
 <SeoLayout
-  title="Blog | EXYU IPTV - Vodiči i Novosti"
-  description="Pročitajte najnovije vodiče za instalaciju IPTV-a i savjete za stabilniji streaming. Sve o Android Box, Fire TV, Smart TV i drugim uređajima."
+  title="Blog | EXYU IPTV - Vodici i Novosti"
+  description="Procitajte najnovije vodice za instalaciju IPTV-a i savjete za stabilniji streaming na svim uredajima."
   canonicalURL="https://exyukanali.tv/blog"
 >
   <Navbar />
 
   <main class="pt-24 pb-20 bg-stone-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Blog</span>
         </h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Pročitajte najnovije vodiče za instalaciju i savjete za stabilniji IPTV streaming.
+          Procitajte najnovije vodice za instalaciju i savjete za stabilniji IPTV streaming.
         </p>
       </div>
 
-      <!-- Posts Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
           <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
@@ -108,21 +38,21 @@ const posts = [
                 <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full">
                   {post.category}
                 </span>
-                <span class="text-gray-500 text-sm">{post.date}</span>
+                <time datetime={post.date} class="text-gray-500 text-sm">
+                  {new Date(post.date).toLocaleDateString('de-DE')}
+                </time>
               </div>
               <h2 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
                 <a href={`/blog/${post.slug}`} class="hover:text-blue-600 transition-colors">
                   {post.title}
                 </a>
               </h2>
-              <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-                {post.excerpt}
-              </p>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
               <a
                 href={`/blog/${post.slug}`}
                 class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
               >
-                Čitaj više →
+                Procitaj vise ->
               </a>
             </div>
           </article>

@@ -2,104 +2,14 @@
 import SeoLayout from '../../layouts/SeoLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+import { blogPosts } from '../../data/blogPosts';
 
 export function getStaticPaths() {
-  const posts = [
-    {
-      slug: "android-box-iptv-instalacija",
-      title: "Kako Instalirati IPTV na Android Box – Kompletni Vodič",
-      excerpt: "Naučite kako jednostavno instalirati IPTV aplikaciju na vaš Android TV Box.",
-      content: "U ovom vodiču ćemo vam pokazati kako instalirati IPTV aplikaciju na Android Box uređaj. Android Box je jedan od najpopularnijih načina za gledanje IPTV-a. Proces je jednostavan i traje samo par minuta.",
-      date: "15.01.2026",
-      category: "Instalacija",
-      readTime: "5 min"
-    },
-    {
-      slug: "fire-tv-stick-iptv-instalacija",
-      title: "Kako Instalirati IPTV na Amazon Fire TV Stick – Kompletni Vodič",
-      excerpt: "Naučite kako jednostavno instalirati IPTV aplikaciju na vaš Amazon Fire TV Stick.",
-      content: "Amazon Fire TV Stick je jedan od najpopularnijih uređaja za streaming. Sa ovim uređajem možete gledati IPTV na vašem običnom TV-u.",
-      date: "10.01.2026",
-      category: "Instalacija",
-      readTime: "4 min"
-    },
-    {
-      slug: "kako-instalirati-iptv-na-samsung-tv",
-      title: "Kako instalirati IPTV na Samsung TV? (Korak po Korak)",
-      excerpt: "Detaljan vodič za instalaciju najpopularnijih IPTV aplikacija na Samsung Smart TV uređajima.",
-      content: "Samsung Smart TV uređaji nude podršku za različite IPTV aplikacije. Najpopularnije su Smart IPTV i Set IPTV aplikacije.",
-      date: "05.01.2026",
-      category: "Instalacija",
-      readTime: "6 min"
-    },
-    {
-      slug: "najbolji-iptv-box-2026",
-      title: "Najbolji IPTV Box u 2026 - Kompletna Usporedba",
-      excerpt: "Koji je najbolji IPTV box za vas? Usporedba najpopularnijih uređaja za gledanje IPTV-a u 2026. godini.",
-      content: "Tražite najbolji IPTV box? U ovom članku uspoređujemo najpopularnije uređaje: Formuler Z8, Nvidia Shield, Apple TV 4K i druge. Svi uređaji nude izvrsnu kvalitetu slike i jednostavnu instalaciju.",
-      date: "20.02.2026",
-      category: "Uređaji",
-      readTime: "8 min"
-    },
-    {
-      slug: "sta-je-iptv-i-kako-radi",
-      title: "Šta je IPTV i Kako Radi? - Sve što Trebate Znati",
-      excerpt: "Objašnjavamo šta je IPTV, kako funkcioniše i zašto je budućnost televizije.",
-      content: "IPTV (Internet Protocol Television) je tehnologija koja omogućuje gledanje televizijskih kanala putem interneta. Za razliku od tradicionalne kabelske ili satelitske televizije, IPTV koristi internet protokol za prijenos video sadržaja.",
-      date: "18.02.2026",
-      category: "Vodič",
-      readTime: "6 min"
-    },
-    {
-      slug: "iptv-vs-kabelska-televizija",
-      title: "IPTV vs Kabelska Televizija - Šta je Bolje?",
-      excerpt: "Usporedba IPTV-a i tradicionalne kabelske televizije. Koja opcija isplati više?",
-      content: "Mnogi se pitaju da li je IPTV bolji od kabelske televizije. U ovom članku analiziramo prednosti i nedostatke obje opcije.",
-      date: "15.02.2026",
-      category: "Vodič",
-      readTime: "7 min"
-    },
-    {
-      slug: "kako-poboljsati-kvalitetu-iptv-streama",
-      title: "Kako Poboljšati Kvalitetu IPTV Streama - 10 Savjeta",
-      excerpt: "Imate problema sa zamrzavanjem? Evo 10 dokazanih načina kako poboljšati kvalitetu.",
-      content: "Zamrzavanje i loša kvaliteta slike su česti problemi kod IPTV-a. U ovom članku dijelimo 10 provjerenih savjeta kako poboljšati vaše streaming iskustvo.",
-      date: "12.02.2026",
-      category: "Savjeti",
-      readTime: "5 min"
-    },
-    {
-      slug: "legalnost-iptv-u-njemackoj",
-      title: "Legalnost IPTV-a u Njemačkoj, Austriji i Švicarskoj",
-      excerpt: "Sve što trebate znati o pravnom statusu IPTV-a u EU. Da li je IPTV legalan?",
-      content: "Pitanje legalnosti IPTV-a je kompleksno. U većini zemalja EU, samo korištenje IPTV servisa nije ilegalno, ali distribucija piratskog sadržaja jest.",
-      date: "08.02.2026",
-      category: "Pravno",
-      readTime: "6 min"
-    },
-    {
-      slug: "najbolji-sportski-kanali-exyu-iptv",
-      title: "Najbolji Sportski Kanali na EXYU IPTV",
-      excerpt: "Pregled svih sportskih kanala dostupnih na EXYU IPTV-u.",
-      content: "EXYU IPTV nudi jednu od najboljih ponuda sportskih kanala za Balkan. Gledajte nogomet, košarku, borilačke sportove i više.",
-      date: "05.02.2026",
-      category: "Kanali",
-      readTime: "4 min"
-    },
-    {
-      slug: "kako-gledati-exyu-kanale-u-inostranstvu",
-      title: "Kako Gledati EXYU Kanale u Inostranstvu - Dijaspora Vodič",
-      excerpt: "Evo kako gledati bosanske, srpske i hrvatske kanale bilo gdje u svijetu.",
-      content: "Ako živite u inostranstvu i želite gledati domaće kanale, EXYU IPTV je rješenje. Naši serveri su locirani u EU što garantuje stabilnu konekciju.",
-      date: "01.02.2026",
-      category: "Vodič",
-      readTime: "5 min"
-    }
-  ];
-
-  return posts.map((post) => ({
+  return blogPosts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post }
   }));
 }
 
@@ -110,77 +20,96 @@ const { post } = Astro.props;
   title={`${post.title} | EXYU IPTV Blog`}
   description={post.excerpt}
   canonicalURL={`https://exyukanali.tv/blog/${post.slug}`}
+  type="article"
+  publishedTime={new Date(post.date).toISOString()}
 >
   <Navbar />
+  <SchemaOrg
+    type="BlogPosting"
+    data={{
+      title: post.title,
+      description: post.excerpt,
+      url: `https://exyukanali.tv/blog/${post.slug}`,
+      pubDate: post.date,
+      updatedDate: post.date,
+      image: 'https://exyukanali.tv/og-image.jpg',
+      author: 'EXYU Kanali TV'
+    }}
+  />
 
   <main class="pt-24 pb-20 bg-white min-h-screen">
     <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <!-- Breadcrumb -->
       <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
-        <a href="/" class="hover:text-blue-600">Početna</a>
+        <a href="/" class="hover:text-blue-600">Pocetna</a>
         <span>/</span>
         <a href="/blog" class="hover:text-blue-600">Blog</a>
         <span>/</span>
         <span class="text-gray-900">{post.title}</span>
       </nav>
 
-      <!-- Header -->
       <header class="mb-12">
         <div class="flex items-center gap-4 mb-4">
           <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">
             {post.category}
           </span>
-          <span class="text-gray-500 text-sm">{post.date}</span>
+          <time datetime={post.date} class="text-gray-500 text-sm">
+            {new Date(post.date).toLocaleDateString('de-DE')}
+          </time>
           <span class="text-gray-500 text-sm">•</span>
-          <span class="text-gray-500 text-sm">{post.readTime} čitanja</span>
+          <span class="text-gray-500 text-sm">{post.readTime} citanja</span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">
           {post.title}
         </h1>
       </header>
 
-      <!-- Content -->
       <div class="prose prose-lg max-w-none text-gray-700">
         <p class="lead">{post.excerpt}</p>
 
         <h2>Priprema</h2>
-        <p>Prije nego što počnete s instalacijom, provjerite da imate:</p>
+        <p>Prije nego sto pocnete s instalacijom, provjerite da imate:</p>
         <ul>
-          <li>Android Box uređaj</li>
-          <li>aktivnu EXYU IPTV pretplatu</li>
+          <li>aktivan EXYU IPTV racun</li>
           <li>stabilnu internet konekciju</li>
+          <li>podrzanu aplikaciju na uredaju</li>
         </ul>
 
         <h2>Korak 1: Preuzimanje aplikacije</h2>
-        <p>Idite na Google Play Store i pretražite "IPTV" ili koristite našu preporučenu aplikaciju.</p>
+        <p>Otvorite trgovinu aplikacija na svom uredaju i pretrazite preporucenu IPTV aplikaciju.</p>
 
         <h2>Korak 2: Instalacija</h2>
-        <p>Kliknite na "Instaliraj" i pričekajte da se aplikacija preuzme.</p>
+        <p>Pokrenite instalaciju i pricekajte da se aplikacija u potpunosti instalira.</p>
 
         <h2>Korak 3: Konfiguracija</h2>
-        <p>Nakon instalacije, pokrenite aplikaciju i unesite podatke koje ste dobili nakon narudžbe.</p>
+        <p>Unesite pristupne podatke koje ste dobili nakon narudzbe i testirajte reprodukciju kanala.</p>
 
-        <h2>Zaključak</h2>
-        <p>To je to! Sada možete uživati u gledanju vaših omiljenih kanala. Ako imate bilo kakvih pitanja, slobodno nas kontaktirajte.</p>
+        <h2>Zakljucak</h2>
+        <p>{post.content}</p>
       </div>
 
-      <!-- Share -->
       <div class="mt-12 pt-8 border-t border-gray-200">
-        <p class="font-semibold text-gray-900 mb-4">Podijelite ovaj članak:</p>
+        <p class="font-semibold text-gray-900 mb-4">Podijelite ovaj clanak:</p>
         <div class="flex gap-4">
-          <a href={`https://wa.me/4915251741280?text=${post.title}`} class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+          <a
+            href={`https://wa.me/4915251741280?text=${encodeURIComponent(post.title)}`}
+            class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+          >
             WhatsApp
           </a>
-          <a href={`mailto:?subject=${post.title}&body=${post.excerpt}`} class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+          <a
+            href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(post.excerpt)}`}
+            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+          >
             Email
           </a>
         </div>
       </div>
 
-      <!-- Back to Blog -->
+      <RelatedPosts currentSlug={post.slug} currentCategory={post.category} />
+
       <div class="mt-12">
         <a href="/blog" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
-          ← Nazad na blog
+          &larr; Nazad na blog
         </a>
       </div>
     </article>
