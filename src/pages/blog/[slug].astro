@@ -19,7 +19,7 @@ const { post } = Astro.props;
 <SeoLayout
   title={`${post.title} | EXYU IPTV Blog`}
   description={post.excerpt}
-  canonicalURL={`https://exyukanali.tv/blog/${post.slug}`}
+  canonicalURL={`https://exyukanali.tv/blog/${post.slug}/`}
   type="article"
   publishedTime={new Date(post.date).toISOString()}
 >
@@ -29,7 +29,7 @@ const { post } = Astro.props;
     data={{
       title: post.title,
       description: post.excerpt,
-      url: `https://exyukanali.tv/blog/${post.slug}`,
+      url: `https://exyukanali.tv/blog/${post.slug}/`,
       pubDate: post.date,
       updatedDate: post.date,
       image: 'https://exyukanali.tv/og-image.jpg',
@@ -42,7 +42,7 @@ const { post } = Astro.props;
       <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
         <a href="/" class="hover:text-blue-600">Pocetna</a>
         <span>/</span>
-        <a href="/blog" class="hover:text-blue-600">Blog</a>
+        <a href="/blog/" class="hover:text-blue-600">Blog</a>
         <span>/</span>
         <span class="text-gray-900">{post.title}</span>
       </nav>
@@ -108,7 +108,7 @@ const { post } = Astro.props;
       <RelatedPosts currentSlug={post.slug} currentCategory={post.category} />
 
       <div class="mt-12">
-        <a href="/blog" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+        <a href="/blog/" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
           &larr; Nazad na blog
         </a>
       </div>

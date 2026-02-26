@@ -128,7 +128,7 @@ export default function CategoryTabs() {
               </div>
 
               <a
-                href="/narudzba"
+                href="/narudzba/"
                 className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all"
               >
                 Naruči Sada →

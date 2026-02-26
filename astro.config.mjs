@@ -12,9 +12,10 @@ const normalizeSitemapURL = (rawURL) => {
   const normalizedProtocol = rawURL.replace(/^http:\/\//i, 'https://');
   const normalizedHost = normalizedProtocol.replace(WWW_PREFIX, SITE_URL);
   const url = new URL(normalizedHost);
+  const hasFileExtension = /\.[a-z0-9]+$/i.test(url.pathname.split('/').pop() ?? '');
 
-  if (url.pathname !== '/' && url.pathname.endsWith('/')) {
-    url.pathname = url.pathname.slice(0, -1);
+  if (!hasFileExtension && !url.pathname.endsWith('/')) {
+    url.pathname = `${url.pathname}/`;
   }
 
   return url.toString();
@@ -23,7 +24,7 @@ const normalizeSitemapURL = (rawURL) => {
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]
   },

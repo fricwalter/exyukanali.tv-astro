@@ -1,4 +1,7 @@
+# Keep legacy sitemap URL stable
+/sitemap.xml /sitemap-index.xml 301
+
 # Force canonical HTTPS non-www domain
-http://exyukanali.tv/* https://exyukanali.tv/:splat 301
-http://www.exyukanali.tv/* https://exyukanali.tv/:splat 301
-https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301
+http://exyukanali.tv/* https://exyukanali.tv/:splat 301!
+http://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
+https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!

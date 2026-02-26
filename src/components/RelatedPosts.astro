@@ -25,7 +25,7 @@ const relatedPosts = [...byCategory, ...fallbackPosts]
       {relatedPosts.map((post) => (
         <li>
           <a
-            href={`/blog/${post.slug}`}
+            href={`/blog/${post.slug}/`}
             class="block p-4 rounded-xl border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors"
           >
             <p class="font-semibold text-gray-900">{post.title}</p>
