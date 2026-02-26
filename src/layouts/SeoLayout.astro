@@ -122,6 +122,18 @@ if (import.meta.env.DEV) {
           }
         });
 
+        document.querySelectorAll('a[data-mailto-subject]').forEach((link) => {
+          const subject = link.getAttribute('data-mailto-subject') ?? '';
+          const body = link.getAttribute('data-mailto-body') ?? '';
+          const params = new URLSearchParams();
+
+          if (subject) params.set('subject', subject);
+          if (body) params.set('body', body);
+
+          const query = params.toString();
+          link.setAttribute('href', `mailto:${query ? `?${query}` : ''}`);
+        });
+
         document.querySelectorAll('form[data-email-action]').forEach((form) => {
           const email = form.getAttribute('data-email-action');
           if (!email) return;

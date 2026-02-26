@@ -8,6 +8,11 @@ import Devices from '../components/Devices.astro';
 import Pricing from '../components/Pricing.tsx';
 import FAQ from '../components/FAQ.tsx';
 import Footer from '../components/Footer.astro';
+import { blogPosts } from '../data/blogPosts';
+
+const latestPosts = [...blogPosts]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 6);
 ---
 
 <SeoLayout
@@ -23,6 +28,27 @@ import Footer from '../components/Footer.astro';
     <Devices />
     <Pricing client:visible />
     <FAQ client:visible />
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Najnoviji Članci</h2>
+          <a href="/blog/" class="text-blue-600 font-semibold hover:underline">Svi Članci →</a>
+        </div>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {latestPosts.map((post) => (
+            <li>
+              <a
+                href={`/blog/${post.slug}/`}
+                class="block h-full rounded-2xl border border-gray-200 p-5 hover:border-blue-400 hover:shadow-md transition"
+              >
+                <p class="text-xs font-semibold text-blue-600 uppercase tracking-wide mb-2">{post.category}</p>
+                <h3 class="text-lg font-bold text-gray-900 leading-snug">{post.title}</h3>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   </main>
   <Footer />
 </SeoLayout>

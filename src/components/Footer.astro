@@ -1,4 +1,6 @@
 ---
+import EmailLink from './EmailLink.astro';
+
 const footerLinks = [
   {
     title: 'Sve Stranice',
@@ -51,7 +53,7 @@ const contactInfo = {
           </div>
           <div class="flex items-center gap-3">
             <span class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">✉️</span>
-            <span class="text-gray-300">Email: <a data-email={contactInfo.email} data-preserve-text="true" href="#" class="text-blue-400 hover:underline"><span data-email-text={contactInfo.email}>[E-Mail aktivieren]</span></a></span>
+            <span class="text-gray-300">Email: <EmailLink email={contactInfo.email} class="text-blue-400 hover:underline" /></span>
           </div>
           <div class="flex items-center gap-3">
             <span class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">🕐</span>

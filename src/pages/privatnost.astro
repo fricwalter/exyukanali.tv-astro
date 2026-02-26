@@ -2,6 +2,7 @@
 import SeoLayout from '../layouts/SeoLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import EmailLink from '../components/EmailLink.astro';
 ---
 
 <SeoLayout
@@ -52,7 +53,7 @@ import Footer from '../components/Footer.astro';
         <p>Koristimo kolačiće za poboljšanje vašeg iskustva. Možete ih onemogućiti u postavkama preglednika.</p>
 
         <h2>8. Kontakt</h2>
-        <p>Za pitanja o privatnosti, kontaktirajte nas na <a data-email="info@exyukanali.tv" data-preserve-text="true" href="#" class="text-blue-600 hover:underline"><span data-email-text="info@exyukanali.tv">[E-Mail aktivieren]</span></a></p>
+        <p>Za pitanja o privatnosti, kontaktirajte nas na <EmailLink email="info@exyukanali.tv" class="text-blue-600 hover:underline" /></p>
       </div>
     </div>
   </main>

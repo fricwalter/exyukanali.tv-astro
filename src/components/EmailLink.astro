@@ -1,0 +1,54 @@
+---
+interface Props {
+  email: string;
+  label?: string;
+  class?: string;
+}
+
+const { email, label, class: className = '' } = Astro.props;
+const atIndex = email.lastIndexOf('@');
+const user = atIndex > 0 ? email.slice(0, atIndex) : email;
+const domain = atIndex > 0 ? email.slice(atIndex + 1) : '';
+---
+
+<span
+  class={`email-link ${className}`.trim()}
+  data-user={user}
+  data-domain={domain}
+  data-label={label ?? email}
+  aria-label={label ?? email}
+>
+  <noscript>{user}[at]{domain}</noscript>
+</span>
+
+<script is:inline>
+  const hydrateEmailLink = (root) => {
+    if (!(root instanceof HTMLElement)) return;
+    if (root.dataset.hydrated === 'true') return;
+
+    const user = root.getAttribute('data-user');
+    const domain = root.getAttribute('data-domain');
+    const label = root.getAttribute('data-label') ?? undefined;
+    if (!user || !domain) return;
+
+    const email = `${user}@${domain}`;
+    const link = document.createElement('a');
+    link.href = `mailto:${email}`;
+    link.textContent = label ?? email;
+    if (root.className) {
+      link.className = root.className;
+    }
+    root.dataset.hydrated = 'true';
+    root.replaceWith(link);
+  };
+
+  const hydrateEmailLinks = () => {
+    document.querySelectorAll('.email-link').forEach((el) => hydrateEmailLink(el));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', hydrateEmailLinks);
+  } else {
+    hydrateEmailLinks();
+  }
+</script>

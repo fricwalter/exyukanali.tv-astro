@@ -2,6 +2,7 @@
 import SeoLayout from '../layouts/SeoLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import EmailLink from '../components/EmailLink.astro';
 ---
 
 <SeoLayout
@@ -27,7 +28,7 @@ import Footer from '../components/Footer.astro';
         </ul>
 
         <h2>Kako zatražiti povrat</h2>
-        <p>Da biste zatražili povrat novca, kontaktirajte nas na <a data-email="info@exyukanali.tv" data-preserve-text="true" href="#" class="text-blue-600 hover:underline"><span data-email-text="info@exyukanali.tv">[E-Mail aktivieren]</span></a> ili putem WhatsAppa.</p>
+        <p>Da biste zatražili povrat novca, kontaktirajte nas na <EmailLink email="info@exyukanali.tv" class="text-blue-600 hover:underline" /> ili putem WhatsAppa.</p>
 
         <h2>Povrat sredstava</h2>
         <p>Povrat će biti izvršen na isti način kao i plaćanje u roku od 5-10 radnih dana.</p>
@@ -37,4 +38,5 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </SeoLayout>
+
 
