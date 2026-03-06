@@ -63,46 +63,38 @@ const { post } = Astro.props;
         </h1>
       </header>
 
-      <div class="prose prose-lg max-w-none text-gray-700">
-        <p class="lead">{post.excerpt}</p>
+      <div class="prose prose-lg max-w-none text-gray-700" set:html={post.content} />
 
-        <h2>Priprema</h2>
-        <p>Prije nego sto pocnete s instalacijom, provjerite da imate:</p>
-        <ul>
-          <li>aktivan EXYU IPTV racun</li>
-          <li>stabilnu internet konekciju</li>
-          <li>podrzanu aplikaciju na uredaju</li>
-        </ul>
-
-        <h2>Korak 1: Preuzimanje aplikacije</h2>
-        <p>Otvorite trgovinu aplikacija na svom uredaju i pretrazite preporucenu IPTV aplikaciju.</p>
-
-        <h2>Korak 2: Instalacija</h2>
-        <p>Pokrenite instalaciju i pricekajte da se aplikacija u potpunosti instalira.</p>
-
-        <h2>Korak 3: Konfiguracija</h2>
-        <p>Unesite pristupne podatke koje ste dobili nakon narudzbe i testirajte reprodukciju kanala.</p>
-
-        <h2>Zakljucak</h2>
-        <p>{post.content}</p>
+      <!-- CTA Box -->
+      <div class="mt-12 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Spreman/na za EXYU IPTV?</h3>
+        <p class="text-gray-600 mb-4">Isprobaj 24 sata besplatno. Bez ugovora, bez rizika.</p>
+        <a
+          href="/narudzba/"
+          class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+        >
+          Naruci IPTV &rarr;
+        </a>
       </div>
 
-      <div class="mt-12 pt-8 border-t border-gray-200">
+      <div class="mt-10 pt-8 border-t border-gray-200">
         <p class="font-semibold text-gray-900 mb-4">Podijelite ovaj clanak:</p>
         <div class="flex gap-4">
           <a
-            href={`https://wa.me/4915251741280?text=${encodeURIComponent(post.title)}`}
+            href={`https://wa.me/4915251741280?text=${encodeURIComponent(post.title + ' - https://exyukanali.tv/blog/' + post.slug + '/')}`}
             class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             WhatsApp
           </a>
           <a
-            href="#"
-            data-mailto-subject={post.title}
-            data-mailto-body={post.excerpt}
-            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://exyukanali.tv/blog/' + post.slug + '/')}`}
+            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Email
+            Facebook
           </a>
         </div>
       </div>

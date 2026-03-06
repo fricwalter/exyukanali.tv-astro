@@ -26,7 +26,8 @@ export default defineConfig({
   site: SITE_URL,
   trailingSlash: 'always',
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    cacheDir: '/tmp/vite-cache'
   },
 
   integrations: [

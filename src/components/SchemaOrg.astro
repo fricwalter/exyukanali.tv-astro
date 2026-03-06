@@ -7,10 +7,11 @@ interface SchemaData {
   pubDate?: string | Date;
   updatedDate?: string | Date;
   image?: string;
+  faqs?: Array<{ question: string; answer: string }>;
 }
 
 interface Props {
-  type?: 'WebPage' | 'BlogPosting' | 'Organization';
+  type?: 'WebPage' | 'BlogPosting' | 'Organization' | 'FAQPage';
   data: SchemaData;
 }
 
@@ -71,6 +72,16 @@ const schema = {
       '@type': 'WebPage',
       '@id': data.url
     }
+  }),
+  ...(type === 'FAQPage' && {
+    mainEntity: (data.faqs ?? []).map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
   })
 };
 ---
