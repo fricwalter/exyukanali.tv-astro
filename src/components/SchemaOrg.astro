@@ -8,10 +8,23 @@ interface SchemaData {
   updatedDate?: string | Date;
   image?: string;
   faqs?: Array<{ question: string; answer: string }>;
+  phone?: string;
+  openingHours?: string[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  category?: string;
+  brand?: string;
+  offers?: Array<{
+    name?: string;
+    price: string;
+    priceCurrency?: string;
+    url?: string;
+    availability?: string;
+    priceValidUntil?: string;
+  }>;
 }
 
 interface Props {
-  type?: 'WebPage' | 'BlogPosting' | 'Organization' | 'FAQPage';
+  type?: 'WebPage' | 'BlogPosting' | 'Organization' | 'FAQPage' | 'BreadcrumbList' | 'Product' | 'LocalBusiness';
   data: SchemaData;
 }
 
@@ -82,6 +95,52 @@ const schema = {
         text: faq.answer
       }
     }))
+  }),
+  ...(type === 'BreadcrumbList' && {
+    itemListElement: (data.breadcrumbs ?? []).map((breadcrumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: breadcrumb.name,
+      item: breadcrumb.url
+    }))
+  }),
+  ...(type === 'Product' && {
+    name: data.title,
+    description: data.description,
+    image: data.image,
+    category: data.category,
+    brand: {
+      '@type': 'Brand',
+      name: data.brand ?? 'EXYU Kanali TV'
+    },
+    url: data.url,
+    offers: (data.offers ?? []).map((offer) => ({
+      '@type': 'Offer',
+      name: offer.name,
+      price: offer.price,
+      priceCurrency: offer.priceCurrency ?? 'EUR',
+      url: offer.url ?? data.url,
+      availability: offer.availability ?? 'https://schema.org/InStock',
+      priceValidUntil: offer.priceValidUntil ?? '2035-12-31'
+    }))
+  }),
+  ...(type === 'LocalBusiness' && {
+    name: data.title ?? 'EXYU Kanali TV',
+    description: data.description,
+    url: data.url,
+    image: data.image,
+    telephone: data.phone,
+    openingHours: data.openingHours,
+    areaServed: ['DE', 'AT', 'CH'],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: data.phone,
+        contactType: 'customer support',
+        areaServed: ['DE', 'AT', 'CH'],
+        availableLanguage: ['bs', 'sr', 'hr', 'de']
+      }
+    ]
   })
 };
 ---

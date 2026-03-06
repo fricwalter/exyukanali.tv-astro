@@ -2,6 +2,7 @@
 import SeoLayout from '../layouts/SeoLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 ---
 
 <SeoLayout
@@ -10,6 +11,26 @@ import Footer from '../components/Footer.astro';
   canonicalURL="https://exyukanali.tv/kontakt/"
 >
   <Navbar />
+  <SchemaOrg
+    type="LocalBusiness"
+    data={{
+      title: 'EXYU Kanali TV',
+      description: 'Kontakt stranica za IPTV podrsku i narudzbe za EXYU dijasporu u DACH regiji.',
+      url: 'https://exyukanali.tv/kontakt/',
+      image: 'https://exyukanali.tv/og-image.jpg',
+      phone: '+4915251741280',
+      openingHours: ['Mo-Su 09:00-22:00']
+    }}
+  />
+  <SchemaOrg
+    type="BreadcrumbList"
+    data={{
+      breadcrumbs: [
+        { name: 'Pocetna', url: 'https://exyukanali.tv/' },
+        { name: 'Kontakt', url: 'https://exyukanali.tv/kontakt/' }
+      ]
+    }}
+  />
 
   <main class="pt-24 pb-20 bg-gradient-to-b from-gray-50 to-white min-h-screen">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

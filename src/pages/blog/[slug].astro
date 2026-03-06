@@ -36,6 +36,16 @@ const { post } = Astro.props;
       author: 'EXYU Kanali TV'
     }}
   />
+  <SchemaOrg
+    type="BreadcrumbList"
+    data={{
+      breadcrumbs: [
+        { name: 'Pocetna', url: 'https://exyukanali.tv/' },
+        { name: 'Blog', url: 'https://exyukanali.tv/blog/' },
+        { name: post.title, url: `https://exyukanali.tv/blog/${post.slug}/` }
+      ]
+    }}
+  />
 
   <main class="pt-24 pb-20 bg-white min-h-screen">
     <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

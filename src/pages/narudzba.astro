@@ -2,6 +2,7 @@
 import SeoLayout from '../layouts/SeoLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
 
 const packages = [
   { name: "Standard - 1 Mjesec", price: "10€", value: "standard-1" },
@@ -33,6 +34,35 @@ const devices = [
   canonicalURL="https://exyukanali.tv/narudzba/"
 >
   <Navbar />
+  <SchemaOrg
+    type="Product"
+    data={{
+      title: 'EXYU IPTV Pretplata',
+      description: 'IPTV pretplata za dijasporu sa EXYU kanalima, sportom, VOD sadrzajem i podrskom za sve glavne uredaje.',
+      url: 'https://exyukanali.tv/narudzba/',
+      image: 'https://exyukanali.tv/og-image.jpg',
+      category: 'IPTV Subscription',
+      offers: [
+        { name: 'Standard - 1 Mjesec', price: '10', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Standard - 3 Mjeseca', price: '25', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Standard - 6 Mjeseci', price: '45', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Standard - 12 Mjeseci', price: '60', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Premium - 1 Mjesec', price: '15', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Premium - 3 Mjeseca', price: '40', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Premium - 6 Mjeseci', price: '60', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'Premium - 12 Mjeseci', price: '84', url: 'https://exyukanali.tv/narudzba/' }
+      ]
+    }}
+  />
+  <SchemaOrg
+    type="BreadcrumbList"
+    data={{
+      breadcrumbs: [
+        { name: 'Pocetna', url: 'https://exyukanali.tv/' },
+        { name: 'Narudzba', url: 'https://exyukanali.tv/narudzba/' }
+      ]
+    }}
+  />
 
   <main class="pt-24 pb-20 bg-gradient-to-b from-gray-50 to-white min-h-screen">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
