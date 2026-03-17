@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /admin/leads/
 
-Sitemap: https://exyukanali.tv/sitemap.xml
+Sitemap: https://exyukanali.tv/sitemap-index.xml

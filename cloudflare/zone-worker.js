@@ -48,23 +48,37 @@ function normalizeLegacyPath(pathname) {
   return pathname;
 }
 
-async function proxySitemap(request, url) {
-  const target = new URL('/sitemap-0.xml', PAGES_ORIGIN);
-  const sitemapRequest = new Request(target.toString(), request);
-  const response = await fetch(sitemapRequest);
+function buildAdminBlockedResponse() {
+  return new Response(
+    `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restricted</title>
+  </head>
+  <body>
+    <h1>Restricted Area</h1>
+    <p>Authentication is required to access this area.</p>
+  </body>
+</html>`,
+    {
+      status: 401,
+      headers: {
+        'cache-control': 'no-store',
+        'content-type': 'text/html; charset=UTF-8',
+        'www-authenticate': 'Basic realm="Restricted Area", charset="UTF-8"',
+        'x-robots-tag': 'noindex, nofollow, noarchive'
+      }
+    }
+  );
+}
 
-  if (!response.ok) {
-    return response;
-  }
-
-  const headers = new Headers(response.headers);
-  headers.set('content-type', 'application/xml; charset=UTF-8');
-  headers.set('cache-control', 'public, max-age=300');
-
-  return new Response(response.body, {
-    status: 200,
-    headers
-  });
+function redirect(url, targetPath, status = 301) {
+  const target = new URL(targetPath, url.origin);
+  target.search = url.search;
+  return Response.redirect(target.toString(), status);
 }
 
 async function proxySeoApi(url, env) {
@@ -88,26 +102,43 @@ async function proxySeoApi(url, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    const pathname = normalizeLegacyPath(url.pathname);
+    const rawPathname = url.pathname;
+    const normalizedPathname = normalizeLegacyPath(rawPathname);
 
-    if (request.method === 'OPTIONS' && (url.hostname === 'seo.exyukanali.tv' || pathname === '/seo')) {
+    if (
+      request.method === 'OPTIONS' &&
+      (url.hostname === 'seo.exyukanali.tv' || normalizedPathname === '/seo')
+    ) {
       return new Response(null, {
         status: 204,
         headers: corsHeaders
       });
     }
 
-    if (url.hostname === 'seo.exyukanali.tv' || pathname === '/seo') {
+    if (url.hostname === 'seo.exyukanali.tv' || normalizedPathname === '/seo') {
       return proxySeoApi(url, env);
     }
 
-    const redirectTarget = legacyRedirects.get(pathname);
-    if (redirectTarget) {
-      return Response.redirect(new URL(redirectTarget, url.origin).toString(), 301);
+    if (normalizedPathname === '/admin' || rawPathname.startsWith('/admin/')) {
+      return buildAdminBlockedResponse();
     }
 
-    if (pathname === '/sitemap' || pathname === '/sitemap.xml') {
-      return proxySitemap(request, url);
+    const redirectTarget = legacyRedirects.get(normalizedPathname);
+    if (redirectTarget) {
+      return redirect(url, redirectTarget);
+    }
+
+    if (normalizedPathname === '/sitemap' || normalizedPathname === '/sitemap.xml') {
+      return redirect(url, '/sitemap-index.xml');
+    }
+
+    if (
+      (request.method === 'GET' || request.method === 'HEAD') &&
+      rawPathname !== '/' &&
+      !rawPathname.endsWith('/') &&
+      !rawPathname.includes('.')
+    ) {
+      return redirect(url, `${rawPathname}/`);
     }
 
     return fetch(request);
