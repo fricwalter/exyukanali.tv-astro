@@ -7,8 +7,10 @@ interface Props {
   description?: string;
   canonicalURL?: string | URL;
   image?: string;
+  imageAlt?: string;
   type?: 'website' | 'article';
   publishedTime?: string;
+  modifiedTime?: string;
   author?: string;
 }
 
@@ -17,8 +19,10 @@ const {
   description = 'EXYU IPTV za dijasporu sa stabilnim streamingom, velikom listom kanala i podrskom na svim uredajima.',
   canonicalURL,
   image = 'https://exyukanali.tv/og-image.jpg',
+  imageAlt = 'EXYU Kanali TV IPTV za dijasporu',
   type = 'website',
   publishedTime,
+  modifiedTime,
   author = 'EXYU Kanali TV'
 } = Astro.props;
 
@@ -73,25 +77,31 @@ if (import.meta.env.DEV) {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={safeDescription} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:secure_url" content={image} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:locale" content="bs_BA" />
     <meta property="og:locale:alternate" content="sr_RS" />
     <meta property="og:locale:alternate" content="hr_HR" />
     <meta property="og:locale:alternate" content="de_DE" />
     <meta property="og:site_name" content="EXYU Kanali TV" />
 
-    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-    {author && <meta property="article:author" content={author} />}
+    {type === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {type === 'article' && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {type === 'article' && author && <meta property="article:author" content={author} />}
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={safeDescription} />
     <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="msapplication-TileColor" content="#2563eb" />
     <meta name="theme-color" content="#2563eb" />
 
@@ -104,68 +114,17 @@ if (import.meta.env.DEV) {
         image
       }}
     />
+    <SchemaOrg type="WebSite" data={{ title: 'EXYU Kanali TV', description: safeDescription, url: siteURL }} />
     <SchemaOrg type="WebPage" data={{ title, description: safeDescription, url: canonical, image }} />
-
+  </head>
+  <body class="font-sans antialiased">
+    <slot />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3H8C2FR00"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-F3H8C2FR00');
-    </script>
-  </head>
-  <body class="font-sans antialiased">
-    <slot />
-    <script is:inline>
-      const hydrateEmailLinks = () => {
-        document.querySelectorAll('a[data-email]').forEach((link) => {
-          const email = link.getAttribute('data-email');
-          if (!email) return;
-
-          const subject = link.getAttribute('data-subject');
-          const body = link.getAttribute('data-body');
-          const params = new URLSearchParams();
-          if (subject) params.set('subject', subject);
-          if (body) params.set('body', body);
-
-          const query = params.toString();
-          link.setAttribute('href', `mailto:${email}${query ? `?${query}` : ''}`);
-
-          if (!link.hasAttribute('data-preserve-text')) {
-            link.textContent = email;
-          }
-        });
-
-        document.querySelectorAll('a[data-mailto-subject]').forEach((link) => {
-          const subject = link.getAttribute('data-mailto-subject') ?? '';
-          const body = link.getAttribute('data-mailto-body') ?? '';
-          const params = new URLSearchParams();
-
-          if (subject) params.set('subject', subject);
-          if (body) params.set('body', body);
-
-          const query = params.toString();
-          link.setAttribute('href', `mailto:${query ? `?${query}` : ''}`);
-        });
-
-        document.querySelectorAll('form[data-email-action]').forEach((form) => {
-          const email = form.getAttribute('data-email-action');
-          if (!email) return;
-          form.setAttribute('action', `mailto:${email}`);
-        });
-
-        document.querySelectorAll('[data-email-text]').forEach((node) => {
-          const email = node.getAttribute('data-email-text');
-          if (!email) return;
-          node.textContent = email;
-        });
-      };
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', hydrateEmailLinks);
-      } else {
-        hydrateEmailLinks();
-      }
     </script>
   </body>
 </html>

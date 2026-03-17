@@ -24,7 +24,7 @@ interface SchemaData {
 }
 
 interface Props {
-  type?: 'WebPage' | 'BlogPosting' | 'Organization' | 'FAQPage' | 'BreadcrumbList' | 'Product' | 'LocalBusiness';
+  type?: 'WebPage' | 'WebSite' | 'BlogPosting' | 'Organization' | 'FAQPage' | 'BreadcrumbList' | 'Product' | 'LocalBusiness';
   data: SchemaData;
 }
 
@@ -53,6 +53,11 @@ const schema = {
   }),
   ...(type === 'WebPage' && {
     name: data.title,
+    description: data.description,
+    url: data.url
+  }),
+  ...(type === 'WebSite' && {
+    name: data.title ?? 'EXYU Kanali TV',
     description: data.description,
     url: data.url
   }),

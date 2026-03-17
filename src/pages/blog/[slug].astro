@@ -14,14 +14,18 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const seoTitle = post.title.length > 52 ? post.title : `${post.title} | EXYU IPTV`;
+const publishedTime = new Date(post.date).toISOString();
 ---
 
 <SeoLayout
-  title={`${post.title} | EXYU IPTV Blog`}
+  title={seoTitle}
   description={post.excerpt}
   canonicalURL={`https://exyukanali.tv/blog/${post.slug}/`}
   type="article"
-  publishedTime={new Date(post.date).toISOString()}
+  publishedTime={publishedTime}
+  modifiedTime={publishedTime}
+  imageAlt={post.title}
 >
   <Navbar />
   <SchemaOrg
