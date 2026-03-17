@@ -20,12 +20,16 @@ const seoTitle =
     : post.title.length > 47
       ? post.title
       : `${post.title} | EXYU IPTV`;
+const seoDescription =
+  post.excerpt.length >= 120
+    ? post.excerpt
+    : `${post.excerpt} Saznajte vise, uporedite opcije i pokrenite EXYU IPTV bez komplikacija.`;
 const publishedTime = new Date(post.date).toISOString();
 ---
 
 <SeoLayout
   title={seoTitle}
-  description={post.excerpt}
+  description={seoDescription}
   canonicalURL={`https://exyukanali.tv/blog/${post.slug}/`}
   type="article"
   publishedTime={publishedTime}
@@ -37,7 +41,7 @@ const publishedTime = new Date(post.date).toISOString();
     type="BlogPosting"
     data={{
       title: post.title,
-      description: post.excerpt,
+      description: seoDescription,
       url: `https://exyukanali.tv/blog/${post.slug}/`,
       pubDate: post.date,
       updatedDate: post.date,

@@ -4,7 +4,37 @@ http://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
 https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
 
 # Legacy URL redirect
-/srpska-televizija-austrija / 301
+/srpska-televizija-austrija /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/android-box-setup /blog/android-box-iptv-instalacija/ 301
+/blog/balkanski-iptv-belgija-dijaspora /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/balkanski-iptv-velika-britanija-uk /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/bosanski-kanali-evropa-iptv-dijaspora /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/brzina-interneta /blog/kako-poboljsati-kvalitetu-iptv-streama/ 301
+/blog/domaci-iptv-austrija-balkanski-kanali /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/ex-yu-kanali-iptv-streaming-1766134184426 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/ex-yu-tv-vrata-u-svijet-zabave-s-balkana-1766739636083 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/exyu-iptv-skandinavija-svedska-norveska /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/exyu-iptv-vodic-domaci-kanali-zabava-1766480437380 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/exyu-tv-iptv-streaming-vodic-1766826060598 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/fire-tv-stick-vodic /blog/fire-tv-stick-iptv-instalacija/ 301
+/blog/hrvatski-kanali-iptv-zabava-1766160540596 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/hrvatski-kanali-svicarska-iptv-streaming-1766566836756 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/instalacija-smart-tv /instalacija/ 301
+/blog/iphone-ipad-iptv /blog/exyu-iptv-iphone-ipad/ 301
+/blog/iptv-balkan-francuska-domaca-tv /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/iptv-balkan-holandija-domaci-kanali /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/iptv-balkan-njemacka-domaci-kanali /blog/exyu-iptv-njemacka/ 301
+/blog/iptv-dijaspora-svicarska-balkanski-kanali /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/kako-gledati-exyu-kanale-vpn-samsung-tv /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/mag-box-vodic /instalacija/ 301
+/blog/srpski-kanali-iptv-streaming-1766134843086 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/srpski-kanali-online-vodic-iptv-streaming-1766394038877 /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
+/blog/srpski-kanali-u-njemackoj-iptv-1766307636687 /blog/exyu-iptv-njemacka/ 301
+/blog/srpski-kanali-u-njemackoj-iptv-streaming-1766381355169 /blog/exyu-iptv-njemacka/ 301
+/blog/sta-je-iptv /blog/sta-je-iptv-i-kako-radi/ 301
+/blog/streaming-kvaliteta /blog/kako-poboljsati-kvalitetu-iptv-streama/ 301
+/blog/tivimate-otkljucajte-puni-potencijal-vaseg-iptv-iskustva-1766653235148 /blog/tivimate-postavke-za-exyu-iptv/ 301
+/blog/vpn-iptv /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
 
 # Ensure unknown paths return real 404 instead of homepage content
 /* /404.html 404

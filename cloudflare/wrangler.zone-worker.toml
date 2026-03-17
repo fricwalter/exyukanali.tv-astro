@@ -1,0 +1,4 @@
+name = "odd-sunset-7b5a"
+main = "zone-worker.js"
+compatibility_date = "2025-12-20"
+workers_dev = false
