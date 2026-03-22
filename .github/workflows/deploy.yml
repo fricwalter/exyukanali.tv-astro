@@ -34,3 +34,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=exyukanali-tv
+
+      - name: Submit sitemap URLs to IndexNow
+        run: npm run indexnow
