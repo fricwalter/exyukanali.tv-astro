@@ -36,5 +36,8 @@ https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
 /blog/tivimate-otkljucajte-puni-potencijal-vaseg-iptv-iskustva-1766653235148 /blog/tivimate-postavke-za-exyu-iptv/ 301
 /blog/vpn-iptv /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
 
+# IndexNow key file — must not be caught by wildcard below
+/e4j5ph76haz3qymvsemhhhbmhzx1mvjp.txt /e4j5ph76haz3qymvsemhhhbmhzx1mvjp.txt 200
+
 # Ensure unknown paths return real 404 instead of homepage content
 /* /404.html 404
