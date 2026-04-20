@@ -3,7 +3,7 @@ import path from "node:path";
 
 const DEFAULT_SITE = "https://exyukanali.tv";
 const DEFAULT_SITEMAP = "dist/sitemap-index.xml";
-const DEFAULT_KEY = "0f5b9332f7b94e22919da60d95c7c8c8";
+const DEFAULT_KEY = "e4j5ph76haz3qymvsemhhhbmhzx1mvjp";
 const DEFAULT_KEY_FILE = `${DEFAULT_KEY}.txt`;
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/IndexNow";
 
