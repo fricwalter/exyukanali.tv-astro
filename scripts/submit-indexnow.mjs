@@ -65,7 +65,14 @@ async function main() {
 
   if (!response.ok) {
     const body = await response.text();
-    throw new Error(`IndexNow: Submission fehlgeschlagen (${response.status} ${response.statusText})${body ? ` - ${body}` : ""}`);
+    const message = `IndexNow: Submission fehlgeschlagen (${response.status} ${response.statusText})${body ? ` - ${body}` : ""}`;
+
+    if (process.env.INDEXNOW_STRICT === "1") {
+      throw new Error(message);
+    }
+
+    console.warn(`${message}\nIndexNow: Deploy wird nicht abgebrochen. Fuer harte Fehler INDEXNOW_STRICT=1 setzen.`);
+    return;
   }
 
   console.log(`IndexNow: ${urls.length} URLs erfolgreich eingereicht.`);
