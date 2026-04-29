@@ -1,5 +1,7 @@
 ---
 import EmailLink from './EmailLink.astro';
+import Logo from './Logo.astro';
+import { countryPages } from '../data/countryPages';
 
 const footerLinks = [
   {
@@ -20,6 +22,13 @@ const footerLinks = [
       { name: 'Povrat novca', href: '/povrat-novca/' },
       { name: 'Kolacici', href: '/kolacici/' }
     ]
+  },
+  {
+    title: 'IPTV po zemljama',
+    links: countryPages.map((country) => ({
+      name: `${country.flag} ${country.footerName}`,
+      href: `/iptv/${country.slug}/`
+    }))
   }
 ];
 
@@ -35,12 +44,7 @@ const contactInfo = {
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
       <div class="lg:col-span-2">
         <a href="/" class="flex items-center gap-2 mb-6">
-          <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-            <span class="text-white font-bold text-xl">EX</span>
-          </div>
-          <span class="text-2xl font-bold">
-            <span class="text-blue-400">EXYU</span> IPTV
-          </span>
+          <Logo size="lg" />
         </a>
         <p class="text-gray-400 mb-6 max-w-md">
           Najbolja internet televizija za dijasporu. Gledajte omiljene kanale bilo gdje u svijetu bez ugovora i bez zamrzavanja u 4K rezoluciji.

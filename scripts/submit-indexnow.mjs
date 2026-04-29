@@ -2,8 +2,8 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 const DEFAULT_SITE = "https://exyukanali.tv";
-const DEFAULT_SITEMAP = "dist/sitemap-index.xml";
-const DEFAULT_KEY = "e4j5ph76haz3qymvsemhhhbmhzx1mvjp";
+const DEFAULT_SITEMAP = "dist/sitemap.xml";
+const DEFAULT_KEY = "7750fb3a6ac840b8b47216584df9d1f2";
 const DEFAULT_KEY_FILE = `${DEFAULT_KEY}.txt`;
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/IndexNow";
 

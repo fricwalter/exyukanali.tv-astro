@@ -25,6 +25,8 @@ const seoDescription =
     ? post.excerpt
     : `${post.excerpt} Saznajte vise, uporedite opcije i pokrenite EXYU IPTV bez komplikacija.`;
 const publishedTime = new Date(post.date).toISOString();
+const blogImagePath = `/images/blog/${post.slug}.webp`;
+const blogImageUrl = `https://exyukanali.tv${blogImagePath}`;
 ---
 
 <SeoLayout
@@ -34,6 +36,7 @@ const publishedTime = new Date(post.date).toISOString();
   type="article"
   publishedTime={publishedTime}
   modifiedTime={publishedTime}
+  image={blogImageUrl}
   imageAlt={post.title}
 >
   <Navbar />
@@ -45,7 +48,7 @@ const publishedTime = new Date(post.date).toISOString();
       url: `https://exyukanali.tv/blog/${post.slug}/`,
       pubDate: post.date,
       updatedDate: post.date,
-      image: 'https://exyukanali.tv/og-image.jpg',
+      image: blogImageUrl,
       author: 'EXYU Kanali TV'
     }}
   />
@@ -60,48 +63,73 @@ const publishedTime = new Date(post.date).toISOString();
     }}
   />
 
-  <main class="pt-24 pb-20 bg-white min-h-screen">
-    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
-        <a href="/" class="hover:text-blue-600">Pocetna</a>
-        <span>/</span>
-        <a href="/blog/" class="hover:text-blue-600">Blog</a>
-        <span>/</span>
-        <span class="text-gray-900">{post.title}</span>
-      </nav>
+  <main class="min-h-screen bg-slate-950 text-white">
+    <section class="relative overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16">
+      <div class="absolute inset-0">
+        <img
+          src="/images/hero-bg-compressed.webp"
+          alt=""
+          class="h-full w-full object-cover opacity-25"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/88 to-slate-950/78"></div>
+        <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-slate-950 to-transparent"></div>
+      </div>
 
-      <header class="mb-12">
-        <div class="flex items-center gap-4 mb-4">
-          <span class="px-3 py-1 bg-blue-100 text-blue-600 text-sm font-semibold rounded-full">
-            {post.category}
-          </span>
-          <time datetime={post.date} class="text-gray-500 text-sm">
-            {new Date(post.date).toLocaleDateString('de-DE')}
-          </time>
-          <span class="text-gray-500 text-sm">•</span>
-          <span class="text-gray-500 text-sm">{post.readTime} citanja</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">
-          {post.title}
-        </h1>
-      </header>
+      <article class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex flex-wrap items-center gap-2 text-sm text-slate-300 mb-8">
+          <a href="/" class="hover:text-amber-300">Pocetna</a>
+          <span>/</span>
+          <a href="/blog/" class="hover:text-amber-300">Blog</a>
+          <span>/</span>
+          <span class="text-slate-100">{post.title}</span>
+        </nav>
 
-      <div class="prose prose-lg max-w-none text-gray-700" set:html={post.content} />
+        <header class="mb-12">
+          <div class="flex flex-wrap items-center gap-4 mb-4">
+            <span class="px-3 py-1 bg-blue-500/15 text-blue-200 text-sm font-semibold rounded-full ring-1 ring-blue-300/15">
+              {post.category}
+            </span>
+            <time datetime={post.date} class="text-slate-300 text-sm">
+              {new Date(post.date).toLocaleDateString('de-DE')}
+            </time>
+            <span class="text-slate-500 text-sm">-</span>
+            <span class="text-slate-300 text-sm">{post.readTime} citanja</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-black leading-tight text-white">
+            {post.title}
+          </h1>
+        </header>
+      </article>
+    </section>
 
-      <!-- CTA Box -->
-      <div class="mt-12 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
-        <h3 class="text-xl font-bold text-gray-900 mb-2">Spreman/na za EXYU IPTV?</h3>
-        <p class="text-gray-600 mb-4">Isprobaj 24 sata besplatno. Bez ugovora, bez rizika.</p>
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <figure class="-mt-6 mb-12 rounded-2xl overflow-hidden bg-slate-900 shadow-2xl shadow-blue-950/30 ring-1 ring-white/10">
+        <img
+          src={blogImagePath}
+          alt={post.title}
+          class="w-full aspect-video object-cover"
+          width="1600"
+          height="900"
+          loading="eager"
+        />
+      </figure>
+
+      <div class="article-content max-w-none text-slate-200" set:html={post.content} />
+
+      <div class="mt-12 p-6 bg-white/[0.06] border border-white/10 rounded-2xl shadow-2xl shadow-blue-950/20">
+        <h3 class="text-xl font-bold text-white mb-2">Spreman/na za EXYU IPTV?</h3>
+        <p class="text-slate-300 mb-4">Isprobaj 24 sata besplatno. Bez ugovora, bez rizika.</p>
         <a
           href="/narudzba/"
-          class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors"
+          class="inline-block px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-950 font-bold rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/30 transition-all"
         >
           Naruci IPTV &rarr;
         </a>
       </div>
 
-      <div class="mt-10 pt-8 border-t border-gray-200">
-        <p class="font-semibold text-gray-900 mb-4">Podijelite ovaj clanak:</p>
+      <div class="mt-10 pt-8 border-t border-white/10">
+        <p class="font-semibold text-white mb-4">Podijelite ovaj clanak:</p>
         <div class="flex gap-4">
           <a
             href={`https://wa.me/4915251741280?text=${encodeURIComponent(post.title + ' - https://exyukanali.tv/blog/' + post.slug + '/')}`}
@@ -125,7 +153,7 @@ const publishedTime = new Date(post.date).toISOString();
       <RelatedPosts currentSlug={post.slug} currentCategory={post.category} />
 
       <div class="mt-12">
-        <a href="/blog/" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+        <a href="/blog/" class="inline-flex items-center gap-2 text-amber-300 font-semibold hover:gap-3 transition-all">
           &larr; Nazad na blog
         </a>
       </div>
@@ -134,3 +162,57 @@ const publishedTime = new Date(post.date).toISOString();
 
   <Footer />
 </SeoLayout>
+
+<style>
+  .article-content :global(.lead) {
+    color: rgb(226 232 240);
+    font-size: 1.18rem;
+    line-height: 1.8;
+  }
+
+  .article-content :global(p) {
+    color: rgb(203 213 225);
+    line-height: 1.82;
+    margin: 1.1rem 0;
+  }
+
+  .article-content :global(h2) {
+    color: white;
+    font-size: 1.65rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 2.6rem 0 1rem;
+  }
+
+  .article-content :global(h3) {
+    color: rgb(254 243 199);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .article-content :global(a) {
+    color: rgb(252 211 77);
+    font-weight: 700;
+  }
+
+  .article-content :global(a:hover) {
+    color: rgb(251 191 36);
+  }
+
+  .article-content :global(ul),
+  .article-content :global(ol) {
+    color: rgb(203 213 225);
+    margin: 1.1rem 0 1.4rem;
+    padding-left: 1.4rem;
+  }
+
+  .article-content :global(li) {
+    margin: 0.55rem 0;
+    line-height: 1.75;
+  }
+
+  .article-content :global(strong) {
+    color: white;
+  }
+</style>

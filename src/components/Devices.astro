@@ -1,57 +1,127 @@
 ---
 const devices = [
-  { icon: "📺", name: "Smart TV (Samsung, LG, Android)", image: "/images/samsung-tv-compressed.webp" },
-  { icon: "🔥", name: "Amazon Fire TV Stick", image: "/images/fire-tv-stick-compressed.webp" },
-  { icon: "📦", name: "Android Box / TV Box", image: "/images/android-box-compressed.webp" },
-  { icon: "🍎", name: "Apple TV & iOS Uređaji", image: "/images/devices-mockup-compressed.webp" },
-  { icon: "📱", name: "Android Telefoni & Tableti", image: "/images/android-box-compressed.webp" },
-  { icon: "💻", name: "PC / Laptop (Windows & Mac)", image: "/images/devices-mockup-compressed.webp" },
-  { icon: "📡", name: "MAG & Enigma2 Resiveri", image: "/images/android-box-compressed.webp" },
-  { icon: "🎮", name: "PlayStation & Xbox", image: "/images/devices-mockup-compressed.webp" },
+  {
+    name: "Smart TV",
+    detail: "Samsung, LG, Philips, Sony",
+    text: "Gledanje direktno na televizoru, bez dodatne kutije, kada je dostupna odgovarajuća IPTV aplikacija.",
+    image: "/images/devices/smart-tv.webp",
+    href: "/blog/kako-instalirati-iptv-na-samsung-tv/"
+  },
+  {
+    name: "Amazon Fire TV Stick",
+    detail: "Mali uređaj, brzo podešavanje",
+    text: "Dobro rješenje za stanove: priključiš HDMI, instaliraš aplikaciju i pokreneš EXYU IPTV.",
+    image: "/images/devices/fire-tv-stick.webp",
+    href: "/blog/fire-tv-stick-iptv-instalacija/"
+  },
+  {
+    name: "Android Box / TV Box",
+    detail: "Za TiviMate i stabilno gledanje",
+    text: "Snažna opcija za sport, EPG, omiljene kanale i duže TV večeri.",
+    image: "/images/devices/android-box.webp",
+    href: "/blog/android-box-iptv-instalacija/"
+  },
+  {
+    name: "Apple TV & iOS",
+    detail: "iPhone, iPad und Apple TV",
+    text: "Praktično za mobilno gledanje, AirPlay i brzo pokretanje na kauču ili u pokretu.",
+    image: "/images/devices/apple-ios.webp",
+    href: "/blog/exyu-iptv-iphone-ipad/"
+  },
+  {
+    name: "Android Telefon & Tablet",
+    detail: "Mobilno gledanje i testiranje",
+    text: "Idealno za brzu provjeru pristupa ili gledanje vijesti, sporta i serija u pokretu.",
+    image: "/images/devices/android-mobile.webp",
+    href: "/instalacija/"
+  },
+  {
+    name: "PC / Laptop",
+    detail: "Windows und Mac",
+    text: "Za radni sto, kancelariju ili putovanje: IPTV možeš koristiti i bez televizora.",
+    image: "/images/devices/pc-laptop.webp",
+    href: "/instalacija/"
+  },
+  {
+    name: "MAG & Enigma2 Receiver",
+    detail: "Klasični receiver setup",
+    text: "Za korisnike koji već imaju receiver i žele uredno podešavanje bez nagađanja.",
+    image: "/images/devices/mag-enigma2.webp",
+    href: "/kontakt/"
+  },
+  {
+    name: "PlayStation & Xbox",
+    detail: "Entertainment setup u dnevnoj sobi",
+    text: "Ako ti TV setup ide preko konzole ili browsera, zajedno provjeravamo najbolju opciju.",
+    image: "/images/devices/game-console.webp",
+    href: "/kontakt/"
+  }
 ];
 ---
 
-<section class="py-20 bg-stone-900">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-        Gledajte na <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Bilo Kojem Uređaju</span>
-      </h2>
-      <p class="text-lg text-gray-300">
-        Jedna pretplata otključava svijet zabave na svim vašim ekranima. Počnite gledati na TV-u u dnevnoj sobi, nastavite na tabletu u spavaćoj ili na telefonu dok putujete.
+<section class="relative overflow-hidden py-20 bg-slate-950">
+  <div class="absolute inset-0">
+    <img src="/images/hero-bg-compressed.webp" alt="" class="h-full w-full object-cover opacity-10" loading="lazy" />
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950/75 to-slate-950"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-end mb-12">
+      <div>
+        <p class="text-sm font-black uppercase tracking-wide text-amber-300 mb-3">Uređaji</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+          EXYU IPTV radi na uređaju koji već imaš
+        </h2>
+      </div>
+      <p class="text-lg text-slate-300 leading-8">
+        Izaberi uređaj, otvori odgovarajući vodič ili nam piši direktno. Reći ćemo ti koja aplikacija najbolje odgovara tvom TV setupu.
       </p>
     </div>
 
-    <!-- Devices Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {devices.map((device, index) => (
-        <div
-          class="group bg-stone-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-stone-700 text-center"
-          style={`animation-delay: ${index * 50}ms`}
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {devices.map((device) => (
+        <a
+          href={device.href}
+          class="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-xl shadow-blue-950/10 transition hover:-translate-y-1 hover:border-amber-300/40 hover:bg-white/[0.09]"
         >
-          <!-- Icon Circle -->
-          <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <span class="text-3xl">{device.icon}</span>
+          <div class="relative overflow-hidden">
+            <img
+              src={device.image}
+              alt={device.name}
+              class="w-full aspect-video object-cover transition duration-500 group-hover:scale-105"
+              width="1200"
+              height="675"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
           </div>
-
-          <h3 class="font-semibold text-white">{device.name}</h3>
-
-          <!-- Hover line -->
-          <div class="mt-4 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
+          <div class="p-5">
+            <p class="text-xs font-black uppercase tracking-wide text-amber-300">{device.detail}</p>
+            <h3 class="mt-2 text-xl font-black text-white leading-snug">{device.name}</h3>
+            <p class="mt-3 text-sm leading-6 text-slate-300">{device.text}</p>
+            <span class="mt-5 inline-flex text-sm font-black text-amber-300 group-hover:text-amber-200">
+              Vodič za instalaciju →
+            </span>
+          </div>
+        </a>
       ))}
     </div>
 
-    <!-- Installation CTA -->
-    <div class="mt-16 text-center">
-      <div class="inline-flex items-center gap-3 px-6 py-3 bg-stone-800 rounded-2xl">
-        <span class="text-2xl">💡</span>
-        <span class="text-white font-medium">Jednostavna Instalacija</span>
+    <div class="mt-12 rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+      <div>
+        <h3 class="text-2xl font-black text-white">Nisi siguran koji uređaj je najbolji?</h3>
+        <p class="mt-2 text-slate-300 leading-7">
+          Pošalji nam model televizora ili sliku uređaja. Reći ćemo ti koju aplikaciju da koristiš i kako da kreneš.
+        </p>
       </div>
-      <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
-        Nakon narudžbe dobijate detaljna uputstva za instalaciju aplikacije na vaš uređaj. Proces traje manje od 5 minuta!
-      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="/kontakt/" class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/10 px-6 py-3 font-bold text-white hover:bg-white/15 transition">
+          Provjeri uređaj
+        </a>
+        <a href="/instalacija/" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-6 py-3 font-black text-slate-950 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition">
+          Pogledaj instalaciju
+        </a>
+      </div>
     </div>
   </div>
 </section>

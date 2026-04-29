@@ -2,111 +2,161 @@
 import SeoLayout from '../layouts/SeoLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+const guides = [
+  {
+    title: 'Fire TV Stick',
+    subtitle: 'Amazon Appstore oder Downloader',
+    image: '/images/devices/fire-tv-stick.webp',
+    href: '/blog/fire-tv-stick-iptv-instalacija/',
+    steps: ['Otvori Amazon Appstore', 'Instaliraj IPTV aplikaciju', 'Unesi pristupne podatke', 'Pokreni kanale i EPG']
+  },
+  {
+    title: 'Samsung Smart TV',
+    subtitle: 'Smart TV aplikacija',
+    image: '/images/devices/smart-tv.webp',
+    href: '/blog/kako-instalirati-iptv-na-samsung-tv/',
+    steps: ['Otvori Samsung Apps', 'Pronađi IPTV aplikaciju', 'Instaliraj aplikaciju', 'Dodaj podatke koje dobiješ od nas']
+  },
+  {
+    title: 'Android Box / TV Box',
+    subtitle: 'TiviMate, IPTV Smarters i druge aplikacije',
+    image: '/images/devices/android-box.webp',
+    href: '/blog/android-box-iptv-instalacija/',
+    steps: ['Otvori Google Play Store', 'Instaliraj TiviMate ili Smarters', 'Dodaj playlistu ili Xtream podatke', 'Podesi favorite i EPG']
+  },
+  {
+    title: 'Apple TV & iOS',
+    subtitle: 'iPhone, iPad und Apple TV',
+    image: '/images/devices/apple-ios.webp',
+    href: '/blog/exyu-iptv-iphone-ipad/',
+    steps: ['Otvori App Store', 'Instaliraj IPTV player', 'Unesi podatke za pristup', 'Gledaj na telefonu, tabletu ili TV-u']
+  },
+  {
+    title: 'Android Telefon & Tablet',
+    subtitle: 'Brzi test i mobilno gledanje',
+    image: '/images/devices/android-mobile.webp',
+    href: '/instalacija/#kontakt',
+    steps: ['Instaliraj preporučenu aplikaciju', 'Unesi podatke koje dobiješ', 'Testiraj par kanala', 'Po potrebi prebaci sliku na TV']
+  },
+  {
+    title: 'PC / Laptop',
+    subtitle: 'Windows und Mac',
+    image: '/images/devices/pc-laptop.webp',
+    href: '/instalacija/#kontakt',
+    steps: ['Instaliraj odgovarajući player', 'Otvori mrežni stream ili playlistu', 'Unesi M3U URL', 'Sačuvaj listu za sljedeće gledanje']
+  }
+];
+
+const tips = [
+  'Koristi stabilan Wi-Fi ili LAN kabl kada je moguće.',
+  'Za sport i 4K najbolje je zatvoriti nepotrebne aplikacije na uređaju.',
+  'Ako ne znaš koju aplikaciju koristiti, pošalji nam model uređaja.',
+  '24h test možeš pokrenuti prije nego uzmeš paket.'
+];
 ---
 
 <SeoLayout
-  title="Instalacija EXYU IPTV-a | Vodici za sve uredaje"
-  description="Detaljni vodiči za instalaciju EXYU IPTV-a na Fire TV Stick, Samsung TV, LG TV, Android TV i druge uređaje. Korak po korak upute."
+  title="Instalacija EXYU IPTV-a | Vodiči za sve uređaje"
+  description="Profesionalni vodiči za instalaciju EXYU IPTV-a na Fire TV Stick, Samsung TV, Android Box, iPhone, iPad, Android uređaje, PC i laptop."
   canonicalURL="https://exyukanali.tv/instalacija/"
 >
   <Navbar />
 
-  <main class="pt-24 pb-20 bg-gradient-to-b from-gray-50 to-white min-h-screen">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-8 text-center">
-        Instalacijski Vodiči
-      </h1>
-
-      <p class="text-lg text-gray-600 mb-12 text-center">
-        Odaberite svoj uređaj i slijedite korake za instalaciju EXYU IPTV-a.
-      </p>
-
-      <!-- Device Grid -->
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Fire TV Stick -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-          <div class="text-4xl mb-4">🔥</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-3">Fire TV Stick</h2>
-          <ol class="space-y-2 text-gray-600">
-            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite Amazon Appstore</li>
-            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
-            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
-            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
-          </ol>
-        </div>
-
-        <!-- Samsung TV -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-          <div class="text-4xl mb-4">📺</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-3">Samsung Smart TV</h2>
-          <ol class="space-y-2 text-gray-600">
-            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite Samsung App Store</li>
-            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
-            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
-            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
-          </ol>
-        </div>
-
-        <!-- LG TV -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-          <div class="text-4xl mb-4">📱</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-3">LG Smart TV</h2>
-          <ol class="space-y-2 text-gray-600">
-            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite LG Content Store</li>
-            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
-            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
-            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
-          </ol>
-        </div>
-
-        <!-- Android Box -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-          <div class="text-4xl mb-4">🎮</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-3">Android TV Box</h2>
-          <ol class="space-y-2 text-gray-600">
-            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite Google Play Store</li>
-            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "TiviMate"</li>
-            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
-            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
-          </ol>
-        </div>
-
-        <!-- PC/Laptop -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-          <div class="text-4xl mb-4">💻</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-3">PC / Laptop</h2>
-          <ol class="space-y-2 text-gray-600">
-            <li class="flex gap-2"><span class="font-bold">1.</span> Preuzmite VLC Player</li>
-            <li class="flex gap-2"><span class="font-bold">2.</span> Instalirajte VLC</li>
-            <li class="flex gap-2"><span class="font-bold">3.</span> Media → Open Network</li>
-            <li class="flex gap-2"><span class="font-bold">4.</span> Zalijepite M3U URL</li>
-          </ol>
-        </div>
-
-        <!-- Smartphone -->
-        <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow">
-          <div class="text-4xl mb-4">📲</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-3">Smartphone / Tablet</h2>
-          <ol class="space-y-2 text-gray-600">
-            <li class="flex gap-2"><span class="font-bold">1.</span> Otvorite App Store / Play Store</li>
-            <li class="flex gap-2"><span class="font-bold">2.</span> Pretražite "IPTV Smarters"</li>
-            <li class="flex gap-2"><span class="font-bold">3.</span> Instalirajte aplikaciju</li>
-            <li class="flex gap-2"><span class="font-bold">4.</span> Dodajte M3U listu</li>
-          </ol>
-        </div>
+  <main class="relative overflow-hidden bg-slate-950 text-white min-h-screen">
+    <section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20">
+      <div class="absolute inset-0">
+        <img src="/images/hero-bg-compressed.webp" alt="" class="h-full w-full object-cover opacity-20" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-950/92 via-slate-950/95 to-slate-950"></div>
       </div>
 
-      <!-- Tips -->
-      <div class="mt-12 bg-blue-50 rounded-2xl p-6">
-        <h3 class="text-xl font-bold text-gray-900 mb-4">💡 Savjeti</h3>
-        <ul class="space-y-2 text-gray-700">
-          <li>✓ Provjerite stabilnu internetsku vezu</li>
-          <li>✓ Koristite WiFi ili Ethernet za najbolje iskustvo</li>
-          <li>✓ Imate problema? Kontaktirajte nas putem WhatsApp-a</li>
-          <li>✓ Besplatni 24h test dostupan za sve uređaje</li>
-        </ul>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-wide text-amber-300 mb-4">Instalacija</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+            IPTV instalacija bez komplikacija
+          </h1>
+          <p class="mt-6 text-lg text-slate-300 leading-8">
+            Odaberi uređaj, prati kratke korake i pokreni EXYU IPTV. Ako zapne, pošalji nam model uređaja i vodimo te kroz podešavanje.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="/narudzba/" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-7 py-4 font-black text-slate-950 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition">
+              Pokreni 24h test
+            </a>
+            <a href="#kontakt" class="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-7 py-4 font-bold text-white hover:bg-white/15 transition">
+              Trebam pomoć
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {guides.map((guide) => (
+            <article class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-xl shadow-blue-950/10">
+              <img
+                src={guide.image}
+                alt={guide.title}
+                class="w-full aspect-video object-cover"
+                width="1200"
+                height="675"
+                loading="lazy"
+              />
+              <div class="p-5">
+                <p class="text-xs font-black uppercase tracking-wide text-amber-300">{guide.subtitle}</p>
+                <h2 class="mt-2 text-2xl font-black text-white">{guide.title}</h2>
+                <ol class="mt-5 space-y-3">
+                  {guide.steps.map((step, index) => (
+                    <li class="flex gap-3 text-sm leading-6 text-slate-300">
+                      <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-300 text-xs font-black text-slate-950">
+                        {index + 1}
+                      </span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+                <a href={guide.href} class="mt-6 inline-flex text-sm font-black text-amber-300 hover:text-amber-200">
+                  Detaljan vodič →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+          <h2 class="text-2xl sm:text-3xl font-black mb-4">Prije instalacije provjeri ovo</h2>
+          <ul class="space-y-3">
+            {tips.map((tip) => (
+              <li class="flex gap-3 text-slate-300 leading-7">
+                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber-300"></span>
+                <span>{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-amber-300/20 bg-gradient-to-br from-amber-300/12 to-blue-500/10 p-6 sm:p-8">
+          <h2 class="text-2xl sm:text-3xl font-black mb-4">Ne znaš koji vodič je za tebe?</h2>
+          <p class="text-slate-300 leading-8 mb-6">
+            Pošalji nam sliku uređaja ili napiši model televizora. Reći ćemo ti tačno koju aplikaciju da instaliraš i šta trebaš unijeti.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/kontakt/" class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/10 px-6 py-3 font-bold text-white hover:bg-white/15 transition">
+              Kontakt / WhatsApp
+            </a>
+            <a href="/narudzba/" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-6 py-3 font-black text-slate-950 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition">
+              24h test
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />

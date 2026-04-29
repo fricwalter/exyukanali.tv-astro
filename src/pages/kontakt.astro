@@ -3,11 +3,59 @@ import SeoLayout from '../layouts/SeoLayout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
+
+const contactInfo = {
+  whatsapp: '+4915251741280',
+  viber: '+4915251741280',
+  viberDigits: '4915251741280',
+  email: 'info@exyukanali.tv',
+  hours: '09:00 - 22:00'
+};
+
+const contactCards = [
+  {
+    title: 'WhatsApp',
+    detail: contactInfo.whatsapp,
+    text: 'Najbrži put za test, aktivaciju, uređaj ili pomoć oko instalacije.',
+    href: `https://wa.me/${contactInfo.whatsapp.replace(/\s/g, '')}`,
+    cta: 'Pošalji poruku'
+  },
+  {
+    title: 'Viber',
+    detail: contactInfo.viber,
+    text: 'Ako više koristiš Viber, možeš nam se javiti na istu brojku kao za WhatsApp.',
+    href: `viber://add?number=${contactInfo.viberDigits}`,
+    cta: 'Otvori Viber'
+  },
+  {
+    title: 'Email',
+    detail: contactInfo.email,
+    text: 'Za pitanja oko paketa, računa, instalacije ili detalja prije narudžbe.',
+    href: `mailto:${contactInfo.email}`,
+    cta: 'Pošalji email'
+  },
+  {
+    title: 'Radno vrijeme',
+    detail: contactInfo.hours,
+    text: 'Odgovaramo svaki dan. Za hitne stvari oko aktivacije WhatsApp je najbrži.',
+    href: '/narudzba/',
+    cta: 'Pokreni test'
+  }
+];
+
+const supportTopics = [
+  '24h test i aktivacija',
+  'Izbor paketa',
+  'Smart TV, Fire TV Stick i Android Box',
+  'TiviMate, IPTV Smarters i EPG',
+  'Sport, Catch TV i stabilnost streama',
+  'Pomoć ako slika zastaje'
+];
 ---
 
 <SeoLayout
-  title="Kontakt EXYU IPTV-a | WhatsApp, Email i Podrska"
-  description="Kontaktirajte EXYU IPTV putem WhatsAppa, emaila ili telefona za aktivaciju, podrsku i pitanja o pretplati. Javite nam se i dobijte odgovor brzo."
+  title="Kontakt EXYU IPTV-a | WhatsApp, Email i Podrška"
+  description="Kontaktirajte EXYU IPTV putem WhatsAppa ili emaila za aktivaciju, podršku, instalaciju i pitanja o pretplati. Javite nam se i dobijte brz odgovor."
   canonicalURL="https://exyukanali.tv/kontakt/"
 >
   <Navbar />
@@ -18,7 +66,7 @@ import SchemaOrg from '../components/SchemaOrg.astro';
       description: 'Kontakt stranica za IPTV podrsku i narudzbe za EXYU dijasporu u DACH regiji.',
       url: 'https://exyukanali.tv/kontakt/',
       image: 'https://exyukanali.tv/og-image.jpg',
-      phone: '+4915251741280',
+      phone: contactInfo.whatsapp,
       openingHours: ['Mo-Su 09:00-22:00']
     }}
   />
@@ -26,89 +74,110 @@ import SchemaOrg from '../components/SchemaOrg.astro';
     type="BreadcrumbList"
     data={{
       breadcrumbs: [
-        { name: 'Pocetna', url: 'https://exyukanali.tv/' },
+        { name: 'Početna', url: 'https://exyukanali.tv/' },
         { name: 'Kontakt', url: 'https://exyukanali.tv/kontakt/' }
       ]
     }}
   />
 
-  <main class="pt-24 pb-20 bg-gradient-to-b from-gray-50 to-white min-h-screen">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-          Kontaktirajte <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Nas</span>
-        </h1>
-        <p class="text-lg text-gray-600">
-          Tu smo da vam pomognemo! Kontaktirajte nas na bilo koji način.
-        </p>
+  <main class="relative overflow-hidden bg-slate-950 text-white min-h-screen">
+    <section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20">
+      <div class="absolute inset-0">
+        <img src="/images/hero-bg-compressed.webp" alt="" class="h-full w-full object-cover opacity-20" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-950/92 via-slate-950/95 to-slate-950"></div>
       </div>
 
-      <!-- Contact Options -->
-      <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/4915251741280" class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all text-center group">
-          <div class="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-3xl">💬</span>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 items-center">
+          <div>
+            <p class="text-sm font-black uppercase tracking-wide text-amber-300 mb-4">Kontakt</p>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+              Trebaš pomoć oko EXYU IPTV-a?
+            </h1>
+            <p class="mt-6 text-lg text-slate-300 leading-8">
+              Pošalji nam koji uređaj koristiš, koji paket želiš ili gdje je zapelo. Najbrže odgovaramo preko WhatsAppa, posebno za test, aktivaciju i instalaciju.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+              <a href={`https://wa.me/${contactInfo.whatsapp.replace(/\s/g, '')}`} class="inline-flex items-center justify-center rounded-xl bg-green-500 px-7 py-4 font-black text-white shadow-lg shadow-green-500/20 hover:bg-green-600 transition">
+                WhatsApp
+              </a>
+              <a href={`viber://add?number=${contactInfo.viberDigits}`} class="inline-flex items-center justify-center rounded-xl border border-violet-300/25 bg-violet-500/20 px-7 py-4 font-black text-violet-100 hover:bg-violet-500/30 transition">
+                Viber
+              </a>
+              <a href="/narudzba/" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-7 py-4 font-black text-slate-950 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition">
+                24h test
+              </a>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">WhatsApp</h3>
-          <p class="text-gray-600">+49 1525 1741280</p>
-          <span class="inline-block mt-4 text-green-600 font-semibold">Pošalji poruku →</span>
-        </a>
 
-        <!-- Email -->
-        <a href="mailto:info@exyukanali.tv" class="bg-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition-all text-center group">
-          <div class="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-            <span class="text-3xl">✉️</span>
+          <div class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8 shadow-2xl shadow-blue-950/25">
+            <h2 class="text-2xl font-black mb-5">Možemo pomoći oko:</h2>
+            <div class="grid sm:grid-cols-2 gap-3">
+              {supportTopics.map((topic) => (
+                <div class="rounded-xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm font-bold text-slate-200">
+                  {topic}
+                </div>
+              ))}
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
-          <p class="text-gray-600">info@exyukanali.tv</p>
-          <span class="inline-block mt-4 text-blue-600 font-semibold">Pošalji email →</span>
-        </a>
-
-        <!-- Hours -->
-        <div class="bg-white p-8 rounded-3xl shadow-lg text-center">
-          <div class="w-16 h-16 mx-auto mb-4 bg-purple-100 rounded-2xl flex items-center justify-center">
-            <span class="text-3xl">🕐</span>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Radno Vrijeme</h3>
-          <p class="text-gray-600">09:00 - 22:00</p>
-          <p class="text-gray-500 text-sm mt-2">Svaki dan</p>
         </div>
       </div>
+    </section>
 
-      <!-- Contact Form -->
-      <form class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100" action="mailto:info@exyukanali.tv" method="post" enctype="text/plain">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">Pošaljite nam poruku</h2>
+    <section class="pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {contactCards.map((card) => (
+            <a href={card.href} class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 shadow-xl shadow-blue-950/10 hover:border-amber-300/40 hover:bg-white/[0.09] transition">
+              <p class="text-xs font-black uppercase tracking-wide text-amber-300 mb-3">{card.title}</p>
+              <h2 class="text-2xl font-black text-white">{card.detail}</h2>
+              <p class="mt-4 text-sm leading-7 text-slate-300">{card.text}</p>
+              <span class="mt-6 inline-flex text-sm font-black text-amber-300 hover:text-amber-200">
+                {card.cta} →
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
 
-        <div class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
+    <section class="pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
+        <div class="rounded-2xl border border-amber-300/20 bg-gradient-to-br from-amber-300/12 to-blue-500/10 p-6 sm:p-8">
+          <h2 class="text-2xl sm:text-3xl font-black mb-4">Za bržu pomoć pošalji ove podatke</h2>
+          <ul class="space-y-3 text-slate-300 leading-7">
+            <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber-300"></span><span>Koji uređaj koristiš: Smart TV, Fire TV Stick, Android Box, telefon ili laptop.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber-300"></span><span>Da li želiš test, novi paket ili pomoć oko postojeće instalacije.</span></li>
+            <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-amber-300"></span><span>Ako slika zastaje, napiši koji internet koristiš i da li si na Wi-Fi ili LAN.</span></li>
+          </ul>
+        </div>
+
+        <form class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8 shadow-2xl shadow-blue-950/20" action={`mailto:${contactInfo.email}`} method="post" enctype="text/plain">
+          <h2 class="text-2xl sm:text-3xl font-black mb-6">Pošaljite nam poruku</h2>
+          <div class="grid md:grid-cols-2 gap-5">
             <div>
-              <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Ime</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" />
+              <label for="name" class="block text-sm font-bold text-slate-200 mb-2">Ime</label>
+              <input type="text" id="name" name="name" class="w-full rounded-xl border border-white/10 bg-slate-950/65 px-4 py-3 text-white placeholder:text-slate-500 focus:border-amber-300 focus:ring-2 focus:ring-amber-300/25 outline-none" />
             </div>
             <div>
-              <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" />
+              <label for="email" class="block text-sm font-bold text-slate-200 mb-2">Email</label>
+              <input type="email" id="email" name="email" class="w-full rounded-xl border border-white/10 bg-slate-950/65 px-4 py-3 text-white placeholder:text-slate-500 focus:border-amber-300 focus:ring-2 focus:ring-amber-300/25 outline-none" />
             </div>
           </div>
-
-          <div>
-            <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Predmet</label>
-            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none" />
+          <div class="mt-5">
+            <label for="subject" class="block text-sm font-bold text-slate-200 mb-2">Predmet</label>
+            <input type="text" id="subject" name="subject" class="w-full rounded-xl border border-white/10 bg-slate-950/65 px-4 py-3 text-white placeholder:text-slate-500 focus:border-amber-300 focus:ring-2 focus:ring-amber-300/25 outline-none" />
           </div>
-
-          <div>
-            <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Poruka</label>
-            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none resize-none"></textarea>
+          <div class="mt-5">
+            <label for="message" class="block text-sm font-bold text-slate-200 mb-2">Poruka</label>
+            <textarea id="message" name="message" rows="5" class="w-full rounded-xl border border-white/10 bg-slate-950/65 px-4 py-3 text-white placeholder:text-slate-500 focus:border-amber-300 focus:ring-2 focus:ring-amber-300/25 outline-none resize-none"></textarea>
           </div>
-
-          <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all">
-            Pošalji Poruku
+          <button type="submit" class="mt-6 w-full rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-6 py-4 font-black text-slate-950 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition">
+            Pošalji poruku
           </button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <Footer />

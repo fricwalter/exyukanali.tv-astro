@@ -18,5 +18,5 @@ npm run indexnow
 
 ## IndexNow
 
-- Der bestehende Key liegt unter `https://exyukanali.tv/e4j5ph76haz3qymvsemhhhbmhzx1mvjp.txt`.
+- Der bestehende Key liegt unter `https://exyukanali.tv/7750fb3a6ac840b8b47216584df9d1f2.txt`.
 - Nach jedem Deploy werden die URLs aus `dist/sitemap-index.xml` automatisch an `api.indexnow.org` gesendet.

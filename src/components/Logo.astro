@@ -1,0 +1,62 @@
+---
+interface Props {
+  variant?: 'light' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  showText?: boolean;
+}
+
+const { variant = 'light', size = 'md', showText = true } = Astro.props;
+
+const sizes = {
+  sm: {
+    mark: 'h-9 w-9',
+    text: 'text-lg',
+    sub: 'text-[0.58rem]'
+  },
+  md: {
+    mark: 'h-11 w-11',
+    text: 'text-xl',
+    sub: 'text-[0.64rem]'
+  },
+  lg: {
+    mark: 'h-12 w-12',
+    text: 'text-2xl',
+    sub: 'text-xs'
+  }
+};
+
+const textColor = variant === 'light' ? 'text-white' : 'text-slate-950';
+const subColor = variant === 'light' ? 'text-slate-300' : 'text-slate-500';
+const accentColor = variant === 'light' ? 'text-amber-300' : 'text-blue-700';
+const currentSize = sizes[size];
+---
+
+<span class="inline-flex items-center gap-3">
+  <span class={`${currentSize.mark} relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-600 via-blue-700 to-slate-950 shadow-lg shadow-blue-950/30 ring-1 ring-white/15`}>
+    <svg viewBox="0 0 48 48" aria-hidden="true" class="h-full w-full">
+      <defs>
+        <linearGradient id="logo-signal" x1="12" y1="7" x2="38" y2="42" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FBBF24" />
+          <stop offset="0.46" stop-color="#F97316" />
+          <stop offset="1" stop-color="#60A5FA" />
+        </linearGradient>
+      </defs>
+      <rect width="48" height="48" rx="13" fill="#0F172A" />
+      <path d="M10 16.5C17.7 10.4 30.3 10.4 38 16.5" fill="none" stroke="url(#logo-signal)" stroke-width="3.2" stroke-linecap="round" />
+      <path d="M15 22.4C20.2 18.5 27.8 18.5 33 22.4" fill="none" stroke="url(#logo-signal)" stroke-width="3.2" stroke-linecap="round" opacity="0.9" />
+      <path d="M20.2 28.2C22.4 26.8 25.6 26.8 27.8 28.2" fill="none" stroke="url(#logo-signal)" stroke-width="3.2" stroke-linecap="round" opacity="0.9" />
+      <path d="M14.5 35.5H33.5" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.95" />
+      <path d="M18 35.5L23.5 28.5H30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+    </svg>
+  </span>
+  {showText && (
+    <span class="leading-none">
+      <span class={`${currentSize.text} block font-black tracking-normal ${textColor}`}>
+        EXYU<span class={accentColor}> Kanali</span>
+      </span>
+      <span class={`${currentSize.sub} mt-1 block font-semibold uppercase tracking-[0.18em] ${subColor}`}>
+        TV za dijasporu
+      </span>
+    </span>
+  )}
+</span>

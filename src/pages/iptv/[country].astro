@@ -1,0 +1,560 @@
+---
+import SeoLayout from '../../layouts/SeoLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+import { countryPages } from '../../data/countryPages';
+
+export function getStaticPaths() {
+  return countryPages.map((country) => ({
+    params: { country: country.slug },
+    props: { country }
+  }));
+}
+
+const { country } = Astro.props;
+
+const heroStats = [
+  { value: '24h', labelBks: 'test prije kupovine', labelLocal: 'Test vor der Bestellung' },
+  { value: '0', labelBks: 'ugovorna obaveza', labelLocal: 'Vertragsbindung' },
+  { value: 'Catch TV', labelBks: 'za propuštene emisije', labelLocal: 'für verpasste Sendungen' },
+  { value: 'Sve', labelBks: 'popularne IPTV aplikacije', labelLocal: 'gängigen IPTV-Apps' }
+];
+
+const benefitCards = [
+  {
+    titleBks: 'Odmah možeš početi',
+    titleLocal: 'Du kannst direkt loslegen',
+    textBks: 'Nakon narudžbe dobijaš podatke i upute za aplikaciju. Ako zapne, pišeš nam na WhatsApp i vodimo te kroz podešavanje.',
+    textLocal: 'Nach der Bestellung bekommst du die Zugangsdaten und die passende App-Anleitung. Wenn etwas hakt, helfen wir dir per WhatsApp beim Einrichten.',
+    href: '/narudzba/',
+    ctaBks: 'Pokreni 24h test',
+    ctaLocal: '24h-Test starten'
+  },
+  {
+    titleBks: 'Bez ugovora i kablovske',
+    titleLocal: 'Ohne Vertrag und ohne Kabelpaket',
+    textBks: 'Gledaš preko interneta, bez satelitske antene, bez montaže i bez dugog ugovora kod kablovskog operatera.',
+    textLocal: 'Du schaust über Internet, ohne Satellitenschüssel, ohne Montage und ohne langen Kabelvertrag.',
+    href: '/#pricing',
+    ctaBks: 'Pogledaj pakete',
+    ctaLocal: 'Pakete ansehen'
+  },
+  {
+    titleBks: 'Podrška na našem jeziku',
+    titleLocal: 'Support auf unserer Sprache',
+    textBks: 'Ne moraš objašnjavati problem na njemačkom. Piši jednostavno šta koristiš: TV, Fire TV Stick, Android Box ili telefon.',
+    textLocal: 'Du musst technische Probleme nicht auf Deutsch erklären. Schreib einfach, ob du TV, Fire TV Stick, Android Box oder Handy nutzt.',
+    href: '/kontakt/',
+    ctaBks: 'Kontakt',
+    ctaLocal: 'Kontakt'
+  }
+];
+
+const devices = [
+  {
+    titleBks: 'Smart TV',
+    titleLocal: 'Smart TV',
+    textBks: 'Samsung, LG, Sony i Philips rade direktno preko IPTV aplikacije, ako je TV dovoljno nov.',
+    textLocal: 'Samsung, LG, Sony und Philips laufen direkt über eine IPTV-App, wenn der Fernseher kompatibel ist.',
+    href: '/blog/kako-instalirati-iptv-na-samsung-tv/'
+  },
+  {
+    titleBks: 'Fire TV Stick',
+    titleLocal: 'Fire TV Stick',
+    textBks: 'Mali uređaj za HDMI, brz za postavljanje i dobar za stanove u Njemačkoj.',
+    textLocal: 'Kleiner HDMI-Stick, schnell eingerichtet und praktisch für Wohnungen in Deutschland.',
+    href: '/blog/fire-tv-stick-iptv-instalacija/'
+  },
+  {
+    titleBks: 'Android Box',
+    titleLocal: 'Android Box',
+    textBks: 'Najbolji izbor ako želiš TiviMate, brz EPG, omiljene kanale i stabilan sport.',
+    textLocal: 'Sehr gut für TiviMate, schnellen EPG, Favoritenlisten und stabile Sportübertragungen.',
+    href: '/blog/android-box-iptv-instalacija/'
+  },
+  {
+    titleBks: 'Telefon, tablet i laptop',
+    titleLocal: 'Handy, Tablet und Laptop',
+    textBks: 'Gledaj kod kuće, na putu ili prebaci sliku na veliki ekran kad ti treba.',
+    textLocal: 'Schau zu Hause, unterwegs oder übertrage das Bild bei Bedarf auf den großen Bildschirm.',
+    href: '/blog/exyu-iptv-iphone-ipad/'
+  }
+];
+
+const sportsFeatures = [
+  {
+    titleBks: 'Utakmica uživo',
+    titleLocal: 'Live-Spiel einschalten',
+    textBks: 'Za fudbal, košarku, tenis i borilačke sportove koristi stabilnu vezu i, kad možeš, LAN kabl.',
+    textLocal: 'Für Fußball, Basketball, Tennis und Kampfsport zählt eine stabile Verbindung, am besten per LAN-Kabel.',
+    href: '/blog/najbolji-sportski-kanali-exyu-iptv/'
+  },
+  {
+    titleBks: 'Catch TV kad zakasniš',
+    titleLocal: 'Catch TV, wenn du zu spät bist',
+    textBks: 'Ako si na poslu, u smjeni ili u autu, propuštenu emisiju možeš pogledati kasnije kada je Catch TV dostupan.',
+    textLocal: 'Wenn du arbeitest, unterwegs bist oder zu spät kommst, kannst du verpasste Sendungen später ansehen, wenn Catch TV verfügbar ist.',
+    href: '/blog/tivimate-postavke-za-exyu-iptv/'
+  },
+  {
+    titleBks: 'Manje prekida',
+    titleLocal: 'Weniger Ruckler',
+    textBks: 'Za sportske prijenose je bitno da aplikacija, internet i uređaj rade zajedno. U vodiču imaš konkretne korake.',
+    textLocal: 'Bei Sport müssen App, Internet und Gerät sauber zusammenspielen. Im Guide findest du konkrete Schritte.',
+    href: '/blog/kako-poboljsati-kvalitetu-iptv-streama/'
+  }
+];
+
+const setupSteps = [
+  {
+    titleBks: 'Izabereš test ili paket',
+    titleLocal: 'Test oder Paket auswählen',
+    textBks: 'Kreneš bez dugog ugovora. Ako ti ne odgovara, ne vežeš se mjesecima.',
+    textLocal: 'Du startest ohne lange Bindung. Wenn es nicht passt, hängst du nicht monatelang fest.'
+  },
+  {
+    titleBks: 'Pošaljemo podatke',
+    titleLocal: 'Zugangsdaten erhalten',
+    textBks: 'Dobijaš podatke za aplikaciju i kratku uputu za uređaj koji koristiš.',
+    textLocal: 'Du bekommst die Zugangsdaten und eine kurze Anleitung für dein Gerät.'
+  },
+  {
+    titleBks: 'Upališ TV',
+    titleLocal: 'Fernseher einschalten',
+    textBks: 'U aplikaciji biraš kanale, sport, filmove, serije ili Catch TV ako je emisija već prošla.',
+    textLocal: 'In der App öffnest du Sender, Sport, Filme, Serien oder Catch TV, wenn die Sendung schon vorbei ist.'
+  }
+];
+
+const cityClusters = [
+  { label: 'Berlin', id: 'berlin' },
+  { label: 'München', id: 'muenchen' },
+  { label: 'Hamburg', id: 'hamburg' },
+  { label: 'Frankfurt', id: 'frankfurt' },
+  { label: 'Stuttgart', id: 'stuttgart' },
+  { label: 'Köln', id: 'koeln' },
+  { label: 'Dortmund', id: 'dortmund' },
+  { label: 'Duisburg', id: 'duisburg' },
+  { label: 'Hannover', id: 'hannover' },
+  { label: 'Nürnberg', id: 'nuernberg' }
+];
+
+const guideLinks = [
+  {
+    href: '/blog/exyu-iptv-njemacka/',
+    labelBks: 'EXYU IPTV u Njemačkoj',
+    labelLocal: 'EXYU IPTV in Deutschland',
+    textBks: 'Detaljniji vodič za gledanje domaćih kanala u Njemačkoj.',
+    textLocal: 'Mehr Details zum Fernsehen aus der Heimat in Deutschland.'
+  },
+  {
+    href: '/blog/najbolji-sportski-kanali-exyu-iptv/',
+    labelBks: 'Sport na EXYU IPTV',
+    labelLocal: 'Sport auf EXYU IPTV',
+    textBks: 'Za utakmice, tenis, košarku i velike sportske večeri.',
+    textLocal: 'Für Spiele, Tennis, Basketball und große Sportabende.'
+  },
+  {
+    href: '/blog/tivimate-postavke-za-exyu-iptv/',
+    labelBks: 'TiviMate podešavanje',
+    labelLocal: 'TiviMate einrichten',
+    textBks: 'Za bolji EPG, omiljene kanale i Catch TV.',
+    textLocal: 'Für besseren EPG, Favoriten und Catch TV.'
+  },
+  {
+    href: '/blog/kako-poboljsati-kvalitetu-iptv-streama/',
+    labelBks: 'Stabilniji stream',
+    labelLocal: 'Stabilerer Stream',
+    textBks: 'Praktični koraci ako slika zastaje ili se kanal sporo otvara.',
+    textLocal: 'Praktische Schritte, wenn das Bild ruckelt oder Sender langsam öffnen.'
+  },
+  {
+    href: '/instalacija/',
+    labelBks: 'Instalacija na svim uređajima',
+    labelLocal: 'Installation auf allen Geräten',
+    textBks: 'Jedno mjesto za Smart TV, Fire TV Stick, Android Box i telefon.',
+    textLocal: 'Ein Ort für Smart TV, Fire TV Stick, Android Box und Handy.'
+  },
+  {
+    href: '/blog/legalnost-iptv-u-njemackoj/',
+    labelBks: 'IPTV i pravne informacije',
+    labelLocal: 'IPTV und rechtliche Hinweise',
+    textBks: 'Informativni tekst za korisnike u DACH regiji.',
+    textLocal: 'Ein informativer Beitrag für Nutzer in der DACH-Region.'
+  }
+];
+---
+
+<SeoLayout
+  title={country.seo.title}
+  description={country.seo.description}
+  canonicalURL={`https://exyukanali.tv/iptv/${country.slug}/`}
+  image="https://exyukanali.tv/images/countries/deutschland-sportabend.webp"
+  imageAlt="EXYU IPTV Deutschland Sportabend"
+>
+  <Navbar />
+  <SchemaOrg
+    type="BreadcrumbList"
+    data={{
+      breadcrumbs: [
+        { name: 'Početna', url: 'https://exyukanali.tv/' },
+        { name: 'IPTV Deutschland', url: `https://exyukanali.tv/iptv/${country.slug}/` }
+      ]
+    }}
+  />
+  <SchemaOrg
+    type="Product"
+    data={{
+      title: 'EXYU IPTV Deutschland',
+      description: country.seo.description,
+      url: `https://exyukanali.tv/iptv/${country.slug}/`,
+      image: 'https://exyukanali.tv/images/countries/deutschland-sportabend.webp',
+      category: 'IPTV Subscription',
+      brand: 'EXYU Kanali TV',
+      offers: [
+        { name: '24h Test', price: '0', url: 'https://exyukanali.tv/narudzba/' },
+        { name: 'EXYU IPTV Premium', price: '15', url: 'https://exyukanali.tv/narudzba/' }
+      ]
+    }}
+  />
+
+  <main class="min-h-screen bg-slate-950 text-white">
+    <section class="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20">
+      <div class="absolute inset-0">
+        <img src="/images/hero-bg-compressed.webp" alt="" class="h-full w-full object-cover opacity-25" loading="eager" />
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-950/96 via-slate-950/90 to-slate-950/70"></div>
+        <div class="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-slate-950 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-[1fr_0.9fr] gap-10 items-center">
+          <div>
+            <div class="mb-6 flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-amber-200 backdrop-blur">
+                <span>{country.flag}</span>
+                <span>IPTV {country.localName}</span>
+              </span>
+              <div class="inline-flex rounded-full border border-white/15 bg-slate-950/60 p-1 backdrop-blur" aria-label="Sprache umschalten">
+                <button type="button" class="lang-toggle active rounded-full px-4 py-2 text-sm font-bold text-slate-950 bg-amber-300" data-lang-button="bks">BKS</button>
+                <button type="button" class="lang-toggle rounded-full px-4 py-2 text-sm font-bold text-slate-200" data-lang-button="local">Deutsch</button>
+              </div>
+            </div>
+
+            <div data-copy="bks">
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                EXYU IPTV u Njemačkoj za TV, sport i domaće kanale
+              </h1>
+              <p class="mt-6 max-w-3xl text-lg text-slate-200 leading-8">
+                Gledaj kanale iz Bosne, Srbije, Hrvatske i regiona bez kablovske, bez satelita i bez dugog ugovora. Pokreneš test, ubaciš podatke u aplikaciju i možeš odmah gledati na uređaju koji već imaš.
+              </p>
+            </div>
+
+            <div data-copy="local" hidden>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                EXYU IPTV in Deutschland für TV, Sport und Sender aus der Heimat
+              </h1>
+              <p class="mt-6 max-w-3xl text-lg text-slate-200 leading-8">
+                Schau Sender aus Bosnien, Serbien, Kroatien und der Region ohne Kabelvertrag, ohne Satellitenschüssel und ohne lange Bindung. Test starten, Zugangsdaten in die App eintragen und direkt auf deinem Gerät schauen.
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+              <a href="/narudzba/" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-7 py-4 font-black text-slate-950 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition">
+                24h Test starten
+              </a>
+              <a href="#sport" class="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-7 py-4 font-bold text-white hover:bg-white/15 transition">
+                Sport & Catch TV
+              </a>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -inset-4 rounded-[2rem] bg-amber-300/10 blur-2xl"></div>
+            <figure class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] shadow-2xl shadow-blue-950/30">
+              <img
+                src="/images/countries/deutschland-sportabend.webp"
+                alt="EXYU IPTV Sportabend in Deutschland"
+                class="w-full aspect-video object-cover"
+                width="1600"
+                height="900"
+                loading="eager"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {heroStats.map((item) => (
+            <div class="rounded-xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur">
+              <p class="text-2xl font-black text-amber-300">{item.value}</p>
+              <p class="mt-1 text-sm text-slate-300" data-copy="bks">{item.labelBks}</p>
+              <p class="mt-1 text-sm text-slate-300" data-copy="local" hidden>{item.labelLocal}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-10">
+        <div class="space-y-8">
+          <section class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8 shadow-2xl shadow-blue-950/20">
+            <div data-copy="bks">
+              <h2 class="text-2xl sm:text-3xl font-black mb-4">Televizija kao kod kuće, ali bez komplikacija</h2>
+              <p class="text-slate-300 leading-8">
+                U Njemačkoj ti je najvažnije da sve radi jednostavno: otvoriš aplikaciju, izabereš kanal i gledaš. Vijesti, filmovi, serije, dječiji program i sport su na jednom mjestu, a ne razbacani po linkovima i aplikacijama koje stalno mijenjaju adresu.
+              </p>
+            </div>
+            <div data-copy="local" hidden>
+              <h2 class="text-2xl sm:text-3xl font-black mb-4">Fernsehen wie zu Hause, nur einfacher</h2>
+              <p class="text-slate-300 leading-8">
+                In Deutschland soll es vor allem unkompliziert laufen: App öffnen, Sender wählen und schauen. Nachrichten, Filme, Serien, Kinderprogramm und Sport sind an einem Ort, statt über ständig wechselnde Links und einzelne Apps verteilt zu sein.
+              </p>
+            </div>
+          </section>
+
+          <section class="grid md:grid-cols-3 gap-4">
+            {benefitCards.map((card) => (
+              <a href={card.href} class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 hover:border-amber-300/40 hover:bg-white/[0.09] transition">
+                <h2 class="text-xl font-black mb-3" data-copy="bks">{card.titleBks}</h2>
+                <h2 class="text-xl font-black mb-3" data-copy="local" hidden>{card.titleLocal}</h2>
+                <p class="text-sm leading-7 text-slate-300" data-copy="bks">{card.textBks}</p>
+                <p class="text-sm leading-7 text-slate-300" data-copy="local" hidden>{card.textLocal}</p>
+                <span class="mt-5 inline-flex text-sm font-black text-amber-300" data-copy="bks">{card.ctaBks}</span>
+                <span class="mt-5 inline-flex text-sm font-black text-amber-300" data-copy="local" hidden>{card.ctaLocal}</span>
+              </a>
+            ))}
+          </section>
+
+          <section id="sport" class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]">
+            <div class="grid lg:grid-cols-2">
+              <div class="p-6 sm:p-8">
+                <div data-copy="bks">
+                  <h2 class="text-2xl sm:text-3xl font-black mb-4">Ne propusti više utakmicu zbog smjene, puta ili kašnjenja</h2>
+                  <p class="text-slate-300 leading-8 mb-6">
+                    Sport je razlog zašto mnogi u dijaspori uopšte traže dobar IPTV. Uživo gledaš kada si kod kuće, a uz Catch TV se vraćaš na emisiju ili utakmicu koju nisi stigao pogledati na vrijeme.
+                  </p>
+                </div>
+                <div data-copy="local" hidden>
+                  <h2 class="text-2xl sm:text-3xl font-black mb-4">Verpass kein Spiel mehr wegen Schicht, Fahrt oder Verspätung</h2>
+                  <p class="text-slate-300 leading-8 mb-6">
+                    Sport ist für viele der wichtigste Grund für gutes IPTV. Live einschalten, wenn du zu Hause bist, und mit Catch TV zu Sendungen oder Spielen zurückspringen, die du nicht rechtzeitig sehen konntest.
+                  </p>
+                </div>
+                <div class="grid gap-3">
+                  {sportsFeatures.map((item) => (
+                    <a href={item.href} class="rounded-xl border border-white/10 bg-slate-950/50 p-4 hover:border-amber-300/40 transition">
+                      <p class="font-black text-white" data-copy="bks">{item.titleBks}</p>
+                      <p class="font-black text-white" data-copy="local" hidden>{item.titleLocal}</p>
+                      <p class="mt-1 text-sm leading-6 text-slate-300" data-copy="bks">{item.textBks}</p>
+                      <p class="mt-1 text-sm leading-6 text-slate-300" data-copy="local" hidden>{item.textLocal}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <img
+                src="/images/countries/deutschland-catch-tv.webp"
+                alt="Catch TV für verpasste Sportübertragungen"
+                class="h-full min-h-80 w-full object-cover"
+                width="1600"
+                height="900"
+                loading="lazy"
+              />
+            </div>
+          </section>
+
+          <section id="geraete" class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]">
+            <img
+              src="/images/countries/deutschland-geraete.webp"
+              alt="EXYU IPTV läuft auf Smart TV, Fire TV Stick, Android Box, Handy und Tablet"
+              class="w-full aspect-video object-cover"
+              width="1600"
+              height="900"
+              loading="lazy"
+            />
+            <div class="p-6 sm:p-8">
+              <div data-copy="bks">
+                <h2 class="text-2xl sm:text-3xl font-black mb-4">Radi na uređaju koji već imaš</h2>
+                <p class="text-slate-300 leading-8 mb-6">
+                  Ne moraš odmah kupovati novu opremu. Pošalji nam koji uređaj koristiš i reći ćemo ti koja aplikacija ima najviše smisla.
+                </p>
+              </div>
+              <div data-copy="local" hidden>
+                <h2 class="text-2xl sm:text-3xl font-black mb-4">Läuft auf dem Gerät, das du schon hast</h2>
+                <p class="text-slate-300 leading-8 mb-6">
+                  Du musst nicht sofort neue Hardware kaufen. Schreib uns, welches Gerät du nutzt, und wir sagen dir, welche App am besten passt.
+                </p>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                {devices.map((device) => (
+                  <a href={device.href} class="rounded-xl border border-white/10 bg-slate-950/50 p-5 hover:border-amber-300/40 hover:bg-white/[0.08] transition">
+                    <h3 class="font-black text-white mb-2" data-copy="bks">{device.titleBks}</h3>
+                    <h3 class="font-black text-white mb-2" data-copy="local" hidden>{device.titleLocal}</h3>
+                    <p class="text-sm leading-6 text-slate-300" data-copy="bks">{device.textBks}</p>
+                    <p class="text-sm leading-6 text-slate-300" data-copy="local" hidden>{device.textLocal}</p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+            <div data-copy="bks">
+              <h2 class="text-2xl sm:text-3xl font-black mb-6">Kako kreneš u tri koraka</h2>
+            </div>
+            <div data-copy="local" hidden>
+              <h2 class="text-2xl sm:text-3xl font-black mb-6">So startest du in drei Schritten</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+              {setupSteps.map((step, index) => (
+                <div class="rounded-xl border border-white/10 bg-slate-950/50 p-5">
+                  <p class="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-amber-300 text-sm font-black text-slate-950">{index + 1}</p>
+                  <h3 class="font-black text-white mb-2" data-copy="bks">{step.titleBks}</h3>
+                  <h3 class="font-black text-white mb-2" data-copy="local" hidden>{step.titleLocal}</h3>
+                  <p class="text-sm leading-6 text-slate-300" data-copy="bks">{step.textBks}</p>
+                  <p class="text-sm leading-6 text-slate-300" data-copy="local" hidden>{step.textLocal}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+            <div data-copy="bks">
+              <h2 class="text-2xl sm:text-3xl font-black mb-4">Telekom, Vodafone, O2, 1&1: bitna je stabilna veza</h2>
+              <p class="text-slate-300 leading-8">
+                IPTV može raditi preko svih većih internet provajdera u Njemačkoj. Za najbolji rezultat koristi 5 GHz Wi-Fi ili LAN kabl, zatvori nepotrebne aplikacije na uređaju i provjeri naš vodič za <a href="/blog/kako-poboljsati-kvalitetu-iptv-streama/" class="text-amber-300 font-bold hover:text-amber-200">stabilniji IPTV stream</a> ako slika zastaje.
+              </p>
+            </div>
+            <div data-copy="local" hidden>
+              <h2 class="text-2xl sm:text-3xl font-black mb-4">Telekom, Vodafone, O2, 1&1: entscheidend ist eine stabile Verbindung</h2>
+              <p class="text-slate-300 leading-8">
+                IPTV kann mit allen großen Internetanbietern in Deutschland laufen. Für ein besseres Ergebnis nutze 5-GHz-WLAN oder LAN-Kabel, schließe unnötige Apps auf dem Gerät und lies unseren Guide für einen <a href="/blog/kako-poboljsati-kvalitetu-iptv-streama/" class="text-amber-300 font-bold hover:text-amber-200">stabileren IPTV-Stream</a>, wenn das Bild ruckelt.
+              </p>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+            <div data-copy="bks">
+              <h2 class="text-2xl sm:text-3xl font-black mb-4">Za gledaoce širom Njemačke</h2>
+              <p class="text-slate-300 leading-8 mb-6">
+                Nije bitno jesi li u velikom gradu ili manjem mjestu. Ako imaš stabilan internet, možemo ti pomoći da podesiš EXYU IPTV i počneš gledati.
+              </p>
+            </div>
+            <div data-copy="local" hidden>
+              <h2 class="text-2xl sm:text-3xl font-black mb-4">Für Zuschauer in ganz Deutschland</h2>
+              <p class="text-slate-300 leading-8 mb-6">
+                Es ist egal, ob du in einer Großstadt oder in einem kleineren Ort wohnst. Wenn dein Internet stabil ist, helfen wir dir beim Einrichten von EXYU IPTV.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {cityClusters.map((city) => (
+                <div id={city.id} class="rounded-xl border border-white/10 bg-slate-950/50 px-4 py-3">
+                  <p class="font-bold text-white">{city.label}</p>
+                  <p class="text-xs text-slate-400">EXYU IPTV Deutschland</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        <aside class="space-y-6">
+          <section class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sticky top-24">
+            <h2 class="text-xl font-black mb-4">Deutschland Quicklinks</h2>
+            <div class="grid grid-cols-2 gap-2 mb-6">
+              {cityClusters.map((city) => (
+                <a href={`/iptv/deutschland/#${city.id}`} class="rounded-lg bg-slate-950/60 px-3 py-2 text-sm text-slate-200 hover:text-amber-300 transition">
+                  {city.label}
+                </a>
+              ))}
+            </div>
+            <div class="space-y-3">
+              <a href="/narudzba/" class="block rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-5 py-3 text-center font-black text-slate-950">24h Test starten</a>
+              <a href="/instalacija/" class="block rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-center font-bold text-white hover:bg-white/15">Installation</a>
+              <a href="/kontakt/" class="block rounded-xl border border-white/15 bg-white/10 px-5 py-3 text-center font-bold text-white hover:bg-white/15">WhatsApp Kontakt</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+          <div data-copy="bks">
+            <h2 class="text-2xl sm:text-3xl font-black mb-4">Korisni vodiči za Njemačku</h2>
+            <p class="text-slate-300 leading-8 mb-6">
+              Ako želiš detalje prije narudžbe, kreni od ovih vodiča. Svaki link vodi na konkretan problem: uređaj, sport, stabilnost, aplikacija ili pravne informacije.
+            </p>
+          </div>
+          <div data-copy="local" hidden>
+            <h2 class="text-2xl sm:text-3xl font-black mb-4">Nützliche Guides für Deutschland</h2>
+            <p class="text-slate-300 leading-8 mb-6">
+              Wenn du vor der Bestellung Details brauchst, starte mit diesen Guides. Jeder Link führt zu einem konkreten Thema: Gerät, Sport, Stabilität, App oder rechtliche Hinweise.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {guideLinks.map((link) => (
+              <a href={link.href} class="rounded-xl border border-white/10 bg-slate-950/50 p-5 hover:border-amber-300/40 hover:bg-white/[0.08] transition">
+                <p class="font-black text-white" data-copy="bks">{link.labelBks}</p>
+                <p class="font-black text-white" data-copy="local" hidden>{link.labelLocal}</p>
+                <p class="mt-2 text-sm leading-6 text-slate-300" data-copy="bks">{link.textBks}</p>
+                <p class="mt-2 text-sm leading-6 text-slate-300" data-copy="local" hidden>{link.textLocal}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-amber-300/20 bg-gradient-to-br from-amber-300/12 to-blue-500/10 p-6 sm:p-8">
+          <div data-copy="bks">
+            <h2 class="text-2xl sm:text-3xl font-black mb-4">Ako želiš gledati večeras, kreni s testom</h2>
+            <p class="text-slate-200 leading-8 mb-6">
+              Ne treba ti novi ugovor, satelitska antena ni čekanje tehničara. Izaberi test, pošalji uređaj koji koristiš i dobit ćeš podatke za pokretanje.
+            </p>
+          </div>
+          <div data-copy="local" hidden>
+            <h2 class="text-2xl sm:text-3xl font-black mb-4">Wenn du heute Abend schauen willst, starte mit dem Test</h2>
+            <p class="text-slate-200 leading-8 mb-6">
+              Du brauchst keinen neuen Vertrag, keine Satellitenschüssel und keinen Technikertermin. Test auswählen, Gerät nennen und Zugangsdaten erhalten.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/narudzba/" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 px-7 py-4 font-black text-slate-950">24h Test starten</a>
+            <a href="/kontakt/" class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/10 px-7 py-4 font-bold text-white hover:bg-white/15">Erst fragen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</SeoLayout>
+
+<script>
+  const buttons = document.querySelectorAll('[data-lang-button]');
+  const copyBlocks = document.querySelectorAll('[data-copy]');
+
+  function setLanguage(lang) {
+    copyBlocks.forEach((block) => {
+      block.hidden = block.getAttribute('data-copy') !== lang;
+    });
+
+    buttons.forEach((button) => {
+      const active = button.getAttribute('data-lang-button') === lang;
+      button.classList.toggle('active', active);
+      button.classList.toggle('bg-amber-300', active);
+      button.classList.toggle('text-slate-950', active);
+      button.classList.toggle('text-slate-200', !active);
+    });
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      setLanguage(button.getAttribute('data-lang-button') ?? 'bks');
+    });
+  });
+</script>

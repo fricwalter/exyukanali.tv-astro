@@ -500,6 +500,8 @@ export const blogPosts: BlogPost[] = [
     content: `
 <p class="lead">Njemacka je dom za vise od 700.000 Bosnjaka i stotine hiljada Srba, Hrvata i Albanaca. Dijaspora u Berlinu, Hamburgu, Münchenu, Frankfurtu i Stuttgartu ima jednu zajednicku zelju: gledanje domacih TV kanala. EXYU IPTV je odgovor na tu potrebu.</p>
 
+<p>Ako zelite kraci pregled za narudzbu, uredaje, sport i Catch TV, otvorite i <a href="/iptv/deutschland/" class="text-blue-600 hover:underline">EXYU IPTV Deutschland stranicu</a>.</p>
+
 <h2>Zasto je EXYU IPTV popularan u Njemackoj?</h2>
 <p>Njemacki kabelski i satelitski operateri (Vodafone Kabel, Telekom Entertain, Sky Deutschland) ne nude EXYU kanale u standardnim paketima. Jedini nacin da pratite BHT, FTV, RTS, HRT i druge domace kanale bez skupih satelitskih rjesenja je IPTV.</p>
 

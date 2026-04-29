@@ -4,6 +4,10 @@ http://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
 https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
 
 # Legacy URL redirect
+/iptv/njemacka /iptv/deutschland/ 301
+/iptv/njemacka/ /iptv/deutschland/ 301
+/iptv-deutschland /iptv/deutschland/ 301
+/iptv-deutschland/ /iptv/deutschland/ 301
 /srpska-televizija-austrija /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
 /blog/android-box-setup /blog/android-box-iptv-instalacija/ 301
 /blog/balkanski-iptv-belgija-dijaspora /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
@@ -37,7 +41,7 @@ https://www.exyukanali.tv/* https://exyukanali.tv/:splat 301!
 /blog/vpn-iptv /blog/kako-gledati-exyu-kanale-u-inostranstvu/ 301
 
 # IndexNow key file — must not be caught by wildcard below
-/e4j5ph76haz3qymvsemhhhbmhzx1mvjp.txt /e4j5ph76haz3qymvsemhhhbmhzx1mvjp.txt 200
+/7750fb3a6ac840b8b47216584df9d1f2.txt /7750fb3a6ac840b8b47216584df9d1f2.txt 200
 
 # Ensure unknown paths return real 404 instead of homepage content
 /* /404.html 404
