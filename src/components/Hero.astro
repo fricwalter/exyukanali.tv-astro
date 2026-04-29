@@ -1,19 +1,26 @@
 ---
 const stats = [
-  { label: "99.9%", value: "Uptime" },
-  { label: "10.000+", value: "Kanala" },
-  { label: "4K", value: "Kvalitet" },
-  { label: "5000+", value: "Korisnika" },
+  { label: "24h", value: "Test prije paketa" },
+  { label: "0", value: "Ugovora" },
+  { label: "Catch TV", value: "Propušteno vratiš" },
+  { label: "4K", value: "Sport i filmovi" },
 ];
 
 const features = [
-  { icon: "⚡", text: "Instant Aktivacija" },
-  { icon: "🔒", text: "Sigurno Plaćanje" },
-  { icon: "🌍", text: "EU Serveri" },
+  "24h test prije paketa",
+  "Sport, Catch TV i VOD",
+  "Podrška preko WhatsAppa i Vibera",
+];
+
+const heroLinks = [
+  { href: "/iptv/deutschland/", label: "IPTV Deutschland" },
+  { href: "/instalacija/", label: "Instalacija" },
+  { href: "/blog/najbolji-sportski-kanali-exyu-iptv/", label: "Sport kanali" },
+  { href: "/blog/", label: "Blog vodiči" },
 ];
 ---
 
-<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-950">
   <!-- Video Background -->
   <div class="absolute inset-0 z-0">
     <video
@@ -27,91 +34,92 @@ const features = [
     >
       <source src="/hero-video.mp4" type="video/mp4" />
     </video>
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/95 via-blue-900/80 to-blue-900/60"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/96 via-blue-950/90 to-slate-950/70"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,158,11,0.22),transparent_32%),radial-gradient(circle_at_78%_36%,rgba(14,165,233,0.18),transparent_30%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-24 md:py-20">
+    <div class="grid lg:grid-cols-[1.08fr_0.92fr] gap-10 xl:gap-14 items-center">
       <!-- Text Content -->
       <div class="text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-6">
-          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          🚀 #1 IPTV za Dijasporu
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-amber-300/30 bg-amber-300/10 text-amber-100 text-sm font-bold mb-6 shadow-lg shadow-amber-950/20">
+          <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+          EXYU IPTV za dijasporu
         </div>
 
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-          Gledaj Najbolje <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">EXYU Kanale</span> Bilo Gdje u Svijetu
-        </h2>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+          EXYU IPTV za dijasporu: <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">domaći kanali, sport i filmovi</span> bez ugovora
+        </h1>
 
-        <p class="text-lg sm:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0">
-          Bez zamrzavanja. Bez ugovora. <span class="font-semibold text-white">10.000+ kanala</span> i videoteka u 4K rezoluciji. Savršeno za naše ljude u Njemačkoj, Austriji i Švicarskoj.
+        <p class="text-lg sm:text-xl text-slate-100/85 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Gledaj bosanske, srpske, hrvatske i regionalne TV kanale u Njemačkoj, Austriji, Švicarskoj i širom inostranstva. Radi na Smart TV-u, Fire TV Sticku, Android Boxu, telefonu i laptopu.
         </p>
 
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <a
             href="/narudzba/"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-gray-900 font-bold rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-1 transition-all duration-200"
+            class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-black rounded-xl shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/35 hover:-translate-y-1 transition-all duration-200"
           >
-            🎁 Testiraj 24h Besplatno
+            Pokreni 24h test
           </a>
           <a
-            href="/#pricing"
-            class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white font-semibold rounded-xl hover:bg-white/20 hover:border-white/50 transition-all duration-200"
+            href="/instalacija/"
+            class="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl hover:bg-white/15 hover:border-amber-300/40 transition-all duration-200"
           >
-            Pogledaj Pakete
+            Provjeri uređaj
           </a>
         </div>
 
         <!-- Trust Badges -->
-        <div class="mt-10 flex flex-wrap gap-6 justify-center lg:justify-start">
+        <div class="mt-9 flex flex-wrap gap-3 justify-center lg:justify-start">
           {features.map((feature) => (
-            <div class="flex items-center gap-2 text-white/90">
-              <span class="text-xl">{feature.icon}</span>
-              <span class="font-medium">{feature.text}</span>
+            <div class="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2 text-sm font-semibold text-slate-100">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span>{feature}</span>
             </div>
           ))}
         </div>
+
+        <nav class="mt-8 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3 justify-center lg:justify-start" aria-label="Brzi linkovi">
+          {heroLinks.map((link) => (
+            <a href={link.href} class="rounded-lg border border-amber-300/20 bg-slate-950/35 px-3 py-2 text-center text-sm font-bold text-amber-200 hover:border-amber-300/50 hover:text-white transition">
+              {link.label} <span aria-hidden="true">→</span>
+            </a>
+          ))}
+        </nav>
       </div>
 
       <!-- Stats Card -->
       <div class="hidden lg:block">
-        <div class="relative">
-          <!-- Decorative elements -->
-          <div class="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl opacity-20"></div>
-          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl opacity-20"></div>
+        <div class="relative rounded-3xl border border-white/15 bg-slate-900/55 p-6 shadow-2xl shadow-blue-950/40 backdrop-blur-md">
+          <div class="rounded-2xl border border-amber-300/20 bg-gradient-to-br from-amber-300/12 to-sky-400/10 p-6 mb-6">
+            <p class="text-sm font-black uppercase tracking-wide text-amber-200 mb-3">Odmah spremno za gledanje</p>
+            <h2 class="text-3xl font-black text-white leading-tight mb-3">Jedna lista za TV, telefon i putovanja</h2>
+            <p class="text-slate-200 leading-relaxed">
+              Podrška pomaže oko instalacije, a test od 24h pokazuje kako kanali rade na tvojoj mreži prije nego uzmeš paket.
+            </p>
+          </div>
 
-          <div class="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
-            <div class="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <div class={`text-center p-4 rounded-2xl bg-white/5 ${index === 0 ? 'bg-gradient-to-br from-yellow-500/20 to-orange-500/20' : ''}`}>
-                  <div class="text-3xl sm:text-4xl font-bold text-white mb-1">{stat.label}</div>
-                  <div class="text-white/70 text-sm">{stat.value}</div>
-                </div>
-              ))}
-            </div>
-
-            <div class="mt-6 p-4 bg-green-500/20 rounded-xl border border-green-500/30">
-              <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <span class="text-white font-medium">Serveri locirani u Njemačkoj i Holandiji</span>
+          <div class="grid grid-cols-2 gap-6">
+            {stats.map((stat) => (
+              <div class="p-4 rounded-2xl bg-white/[0.06] border border-white/10">
+                <div class="text-2xl font-black text-white mb-1">{stat.label}</div>
+                <div class="text-slate-300 text-sm">{stat.value}</div>
               </div>
-            </div>
+            ))}
+          </div>
 
-            <div class="mt-4 text-center">
-              <p class="text-white/60 text-sm">Zadovoljnih klijenata širom svijeta</p>
+          <div class="mt-6 p-4 bg-emerald-500/15 rounded-xl border border-emerald-400/25">
+            <div class="flex items-center gap-3">
+              <div class="w-3 h-3 bg-emerald-400 rounded-full"></div>
+              <span class="text-white font-bold">Stabilni EU serveri za Njemačku, Austriju i Švicarsku</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Bottom Wave -->
-  <div class="absolute bottom-0 left-0 right-0">
-    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-16 sm:h-24">
-      <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
-    </svg>
   </div>
 </section>
